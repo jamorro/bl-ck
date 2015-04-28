@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/gamearena.css">
+	<script></script>
+</head>
+	
+<div id="gamefield">
+
+	<div id="character"></div>
+
+</div>
+<script type="text/javascript">
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+        case 37:
+            alert('left');
+            break;
+        case 38:
+            alert('up');
+            break;
+        case 39:
+            alert('right');
+            break;
+        case 40:
+            alert('down');
+            break;
+    }
+};
+var gameField = document.getElementById('gamefield');
+var character = document.getElementById('character');
+
+var guyLeft = 0;
+
+function anim(e) {
+
+	alert(e.keyCode);
+	if (e.keyCode == 39) {
+		guyLeft += 2;
+		guy.style.left = guyLeft + 'px';
+	}
+	if (e.keyCode == 37) {
+		guyLeft -= 2;
+		guy.style.left = guyLeft + 'px';
+		if (guyLeft <= 0) {
+			guyLeft += 2;
+		}
+	}
+}
+	
+	document.onkeydown = alert();
+</script>
+
+</body>
+</html>
