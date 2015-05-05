@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/map.css">
+	<link rel="stylesheet" type="text/css" href="css/player.css">
+	<script src	="js/Models/movement.js"></script>
+	<!--<script src	="js/Models/player.js"></script>
+    -->
+</head>
+<body>
+
+	<canvas id="map" class="map-area"></canvas>
+
+
+	<script >
+
+	var canvas = document.querySelector("#map");
+	var context = canvas.getContext('2d');
+
+	var xPos = 0;
+	var yPos = 0;
+
+	context.rect(xPos, yPos, 50, 50);
+	context.stroke();
+
+	function move(e) {
+		switch (e.keyCode) {
+			case 37 : //LEFT
+				xPos-=5;
+				break;
+			case 39 : //RIGHT
+				xPos+=5;
+				break;
+			case 38 : //UP
+				yPos-=5;
+				break;
+			case 40 : //DOWN
+				yPos+=5;
+				break;
+		}
+
+		canvas.width = canvas.width;
+		context.rect(xPos, yPos, 50, 50);
+		context.stroke();
+	}
+
+	document.onkeydown = move;
+
+	</script>
+	
+</body>
+</html>
