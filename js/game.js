@@ -55,6 +55,7 @@ addEventListener("keyup", function (e) {
 
 // Reset the game when the player catches a monster
 var Initiate = function () {
+    
 	hero.x = canvas.width / 2;
 	hero.y = canvas.height / 2;
 
@@ -65,31 +66,33 @@ var Initiate = function () {
 
 // Update game objects
 var update = function (modifier) {
-	if (38 in keysDown) { // Player holding up
-		hero.y -= hero.speed * modifier;
+    
+	if (38 in keysDown && hero.y > 0) { // Player holding up
+	    hero.y -= hero.speed * modifier;   
 	}
-	if (40 in keysDown) { // Player holding down
-		hero.y += hero.speed * modifier;
+	if (40 in keysDown && hero.y < 450) { // Player holding down
+	    hero.y += hero.speed * modifier;
 	}
-	if (37 in keysDown) { // Player holding left
+	if (37 in keysDown && hero.x > 0) { // Player holding left
 		hero.x -= hero.speed * modifier;
 	}
-	if (39 in keysDown) { // Player holding right
+	if (39 in keysDown && hero.x <480) { // Player holding right
 		hero.x += hero.speed * modifier;
 	}
 
-	// Are they touching?
+    // Are they touching?
+    
 	if (collision(hero, monster)) {
-	    if (38 in keysDown) { // Player holding up
+	    if (38 in keysDown && monster.y > 0) { // Player holding up
 	        monster.y -= hero.speed * modifier;
 	    }
-	    if (40 in keysDown) { // Player holding down
+	    if (40 in keysDown && monster.y < 450) { // Player holding down
 	        monster.y += hero.speed * modifier;
 	    }
-	    if (37 in keysDown) { // Player holding left
+	    if (37 in keysDown && monster.x > 0) { // Player holding left
 	        monster.x -= hero.speed * modifier;
 	    }
-	    if (39 in keysDown) { // Player holding right
+	    if (39 in keysDown && monster.x < 480) { // Player holding right
 	        monster.x += hero.speed * modifier;
 	    }
 	}
