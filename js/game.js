@@ -72,6 +72,7 @@ var gameArray = [
 bgImage.onload = function () {
     drawmap();
 }
+
 bgImage.src = "images/Tile.png";
 
 // Hero image
@@ -80,6 +81,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
+
 heroImage.src = "images/hero.png";
 
 // Monster image
@@ -196,37 +198,36 @@ var canhazmove = function (modelA, modelB, keysDown) {
 
 
 var collision = function (modelA, modelB) {
-    if (
-    modelA.x <= (modelB.x + 32)
-    && modelB.x <= (modelA.x + 32)
-    && modelA.y <= (modelB.y + 32)
-    && modelB.y <= (modelA.y + 32)) {
+    if (modelA.x <= (modelB.x + 32)
+        && modelB.x <= (modelA.x + 32)
+        && modelA.y <= (modelB.y + 32)
+        && modelB.y <= (modelA.y + 32)) {
         return true;
     }
 }
 drawmap = function () {
+    
     var x = 0;
     var y = 0;
     var b = 0;
-        for (i = 0; i < bgArray.length; i++) {
 
-            for (c = 0; c < bgArray[b].length; c++) {
-                var object = bgArray[b];
-                if (object[c] === 1) {
-                    ctx1.drawImage(bgImage, x, y);
-                    
-                }
-                if (object[c] === 0) {
-                    ctx1.drawImage(walls, x, y);
-                }
-                x = x + 32;
+    for (i = 0; i < bgArray.length; i++) {
+
+        for (c = 0; c < bgArray[b].length; c++) {
+            var object = bgArray[b];
+            if (object[c] === 1) {
+                ctx1.drawImage(bgImage, x, y);
+                
             }
-            x = 0;
-            b++;
-            y = y + 32;
+            if (object[c] === 0) {
+                ctx1.drawImage(walls, x, y);
+            }
+            x = x + 32;
         }
-    
-
+        x = 0;
+        b++;
+        y = y + 32;
+    }
 }
 
 // Draw everything
