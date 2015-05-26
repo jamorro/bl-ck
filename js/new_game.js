@@ -1,15 +1,4 @@
-// Create the canvas
-/*
-var canvas = document.createElement("canvas");
-var canvas2 = document.createElement("canvas");
-var ctx = canvas.getContext("2d");
-var ctx2 = canvas2.getContext("2d");
-canvas.width = 512;
-canvas.height = 480;
-canvas.style.zIndex = 1;
-canvas2.width = 512;
-canvas2.height = 480;
-canvas2.style.zIndex =2;*/
+
 var layer1;
 var layer2;
 var layer3;
@@ -25,51 +14,18 @@ ctx3 = layer3.getContext("2d");
 //15*16
 // Background image
 var bgReady = false;
-var walls = new Image();
-walls.src = "images/wall.png";
-var bgImage = new Image();
 
+var walls = new Image();
+var bgImage = new Image();
 var exit = new Image();
+
+walls.src = "images/wall.png";
 exit.src = "images/exit.png";
+
+
 
 var WIDTH = 32;
 var HEIGHT = 32;
-
-
-//JUST DRAWS OUT THE MAP
-var bgArray = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
-
-var playerArray = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 /*
 *0 = cannot move here
 *1 = can move here free space
@@ -95,16 +51,18 @@ var START_COL_PLAYER = 1;
 var EXIT_ROW = 12;
 var EXIT_COL = 12;
 
-var gameArray = bgArray;
+var gameArray;
 var boxRow = START_ROW_BOX_1;
 var boxCol = START_COL_BOX_1;
 var playerRow = 1;
 var playerCol = 1;
 
 
-gameArray[1][1] = PLAYER;
-gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-playerArray[playerRow][playerCol] = PLAYER;
+//JUST DRAWS OUT THE MAP
+
+var bgArray;
+
+var playerArray;
 
 
 
@@ -118,7 +76,7 @@ bgImage.src = "images/Tile.png";
 var heroReady = false;
 var heroImage = new Image();
 heroImage.onload = function () {
-	heroReady = true;
+    heroReady = true;
 };
 
 heroImage.src = "images/hero.png";
@@ -127,13 +85,13 @@ heroImage.src = "images/hero.png";
 var monsterReady = false;
 var monsterImage = new Image();
 monsterImage.onload = function () {
-	monsterReady = true;
+    monsterReady = true;
 };
 monsterImage.src = "images/block.png";
 
 // Game objects
 var hero = {
-	speed: 32 // movement in pixels per second
+    speed: 32 // movement in pixels per second
 };
 var monster = {};
 
@@ -156,32 +114,7 @@ addEventListener("keyup", function (e) {
 
 }, false);
 
-// Reset the game when the player catches a monster
-var Initiate = function () {
-    var x = 0;
-    var y = 0;
-    var b = 0;
-    for (i = 0; i < bgArray.length; i++) {
 
-        for (c = 0; c < gameArray[b].length; c++) {
-            var object = gameArray[b];
-            if (object[c] === 2) {
-                hero.x = x;
-                hero.y = y;
-
-            }
-            if (object[c] === 3){
-                monster.x = x;
-                monster.y = y;
-            }
-            x = x + 32;
-        }
-        x = 0;
-        b++;
-        y = y + 32;
-    }
-    
-};
 
 
 function checkUpMovement() {
@@ -332,6 +265,51 @@ var update = function (speed) {
     }
 };
 
+bgArray = getNextLevel();
+ gameArray = bgArray;
+        gameArray[1][1] = PLAYER;
+        gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
+        playerArray = getPlayerArray();
+        playerArray[playerRow][playerCol] = PLAYER;
+// The main game loop
+
+function updateNewLevel() {
+    bgArray = getNextLevel();
+    gameArray = bgArray;
+    gameArray[1][1] = PLAYER;
+    gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
+    playerArray[playerRow][playerCol] = PLAYER;
+    drawmap();
+    setNewLevel(false);
+}
+
+
+var main = function () {
+   
+    if (getNewLevel() === true) {
+       
+    }
+    if (getResetLevel() === true) {
+        bgArray = resetLevel();
+        gameArray = bgArray;
+        console.log(playerArray);
+        console.log(gameArray);
+        gameArray[1][1] = PLAYER;
+        gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
+        playerRow = 1;
+        playerCol = 1;
+        playerArray = getPlayerArray();
+        playerArray[playerRow][playerCol] = PLAYER;
+        drawmap();
+        setResetLevel(false);
+    }
+    render();
+    requestAnimationFrame(main);
+};
+
+
+
+
 drawmap = function () {
     
     var x = 0;
@@ -344,7 +322,6 @@ drawmap = function () {
             var object = bgArray[b];
             if (object[c] === MOVABLE) {
                 ctx1.drawImage(bgImage, x, y);
-                
             }
             if (object[c] === WALL) {
                 ctx1.drawImage(walls, x, y);
@@ -352,6 +329,7 @@ drawmap = function () {
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
             }
+           
             x = x + 32;
         }
         x = 0;
@@ -363,22 +341,51 @@ drawmap = function () {
 // Draw everything
 var render = function () {
 
-	if (heroReady) {
-	    ctx2.clearRect(0, 0,512,480);
-	    ctx2.drawImage(heroImage, hero.x, hero.y);
-	}
+    if (heroReady) {
+        ctx2.clearRect(0, 0,512,480);
+        ctx2.drawImage(heroImage, hero.x, hero.y);
+    }
 
-	if (monsterReady) {
-		ctx2.drawImage(monsterImage, monster.x, monster.y);
-	}
+    if (monsterReady) {
+        ctx2.drawImage(monsterImage, monster.x, monster.y);
+    }
 
 };
 
-// The main game loop
-var main = function () {
-	render();
-	// Request to do this again ASAP
-	requestAnimationFrame(main);
+
+function setBgArray(tmpBgArr) {
+    bgArray = tmpBgArr;
+}
+
+function getBgArray() {
+    return bgArray;
+}
+// Reset the game when the player catches a monster
+
+var Initiate = function () {
+    var x = 0;
+    var y = 0;
+    var b = 0;
+    for (i = 0; i < bgArray.length; i++) {
+
+        for (c = 0; c < gameArray[b].length; c++) {
+            var object = gameArray[b];
+            if (object[c] === 2) {
+                hero.x = x;
+                hero.y = y;
+
+            }
+            if (object[c] === 3){
+                monster.x = x;
+                monster.y = y;
+            }
+            x = x + 32;
+        }
+        x = 0;
+        b++;
+        y = y + 32;
+    }
+    
 };
 
 // Cross-browser support for requestAnimationFrame
@@ -387,5 +394,6 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 // Let's play this game!
 var then = Date.now();
-Initiate();
+
 main();
+Initiate();
