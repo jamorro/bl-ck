@@ -71,11 +71,11 @@ var playerArray = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 /*
-*0 = cannot move here
-*1 = can move here free space
-*2 = Player position
-*3 = block
-*4 = exit
+*1 = cannot move here
+*2 = can move here free space
+*3 = Player position
+*4 = block
+*5 = exit
 */
 var WALL    = 1;
 var MOVABLE = 2;
