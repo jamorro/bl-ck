@@ -18,10 +18,10 @@ var bgReady = false;
 var walls = new Image();
 var bgImage = new Image();
 var exit = new Image();
-
+var waterTile = new Image();
 walls.src = "images/wall.png";
 exit.src = "images/exit.png";
-
+waterTile.src = "images/water.png";
 
 
 var WIDTH = 32;
@@ -33,11 +33,12 @@ var HEIGHT = 32;
 *3 = block
 *4 = exit
 */
-var WALL    = 0;
-var MOVABLE = 1;
-var PLAYER  = 2;
-var BOX     = 3;
-var EXIT    = 4;
+var WALL    = 1;
+var MOVABLE = 2;
+var PLAYER  = 3;
+var BOX     = 4;
+var WATER = 5;
+var EXIT = 6;
 
 var ROWS_LENGTH = 16;
 var COL_LENGTH = 15;
@@ -370,12 +371,12 @@ var Initiate = function () {
 
         for (c = 0; c < gameArray[b].length; c++) {
             var object = gameArray[b];
-            if (object[c] === 2) {
+            if (object[c] === 3) {
                 hero.x = x;
                 hero.y = y;
 
             }
-            if (object[c] === 3){
+            if (object[c] === 4){
                 monster.x = x;
                 monster.y = y;
             }
