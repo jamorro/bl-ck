@@ -32,6 +32,9 @@ var bgImage = new Image();
 var exit = new Image();
 exit.src = "images/exit.png";
 
+var waterTile = new Image();
+waterTile.src = "images/water.png";
+
 var WIDTH = 32;
 var HEIGHT = 32;
 
@@ -49,8 +52,8 @@ var bgArray = [
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 5, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 2, 1],
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
 
@@ -75,13 +78,15 @@ var playerArray = [
 *2 = can move here free space
 *3 = Player position
 *4 = block
-*5 = exit
+*5 = water tile
+*6 = exit
 */
 var WALL    = 1;
 var MOVABLE = 2;
 var PLAYER  = 3;
 var BOX     = 4;
-var EXIT    = 5;
+var WATER   = 5;
+var EXIT    = 6;
 
 var ROWS_LENGTH = 16;
 var COL_LENGTH = 15;
@@ -130,6 +135,9 @@ monsterImage.onload = function () {
 	monsterReady = true;
 };
 monsterImage.src = "images/block.png";
+
+
+
 
 // Game objects
 var hero = {
@@ -351,6 +359,9 @@ drawmap = function () {
             }
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
+            }
+            if (object[c] === WATER) {
+                ctx1.drawImage(waterTile, x, y);
             }
             x = x + 32;
         }
