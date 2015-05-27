@@ -27,13 +27,11 @@ waterTile.src = "images/water.png";
 var WIDTH = 32;
 var HEIGHT = 32;
 /*
-*0 = inget
-*1 = cannot move here
-*2 = can move here free space
-*3 = Player position
-*4 = block
-*5 = water
-*6 = exit
+*0 = cannot move here
+*1 = can move here free space
+*2 = Player position
+*3 = block
+*4 = exit
 */
 var WALL    = 1;
 var MOVABLE = 2;
@@ -332,9 +330,7 @@ drawmap = function () {
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
             }
-            if (object[c] === WATER) {
-                ctx1.drawImage(waterTile, x, y);
-            }
+           
             x = x + 32;
         }
         x = 0;
