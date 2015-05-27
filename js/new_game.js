@@ -18,7 +18,9 @@ var bgReady = false;
 var walls = new Image();
 var bgImage = new Image();
 var exit = new Image();
+var water = new Image();
 
+water.src = "images/water.png";
 walls.src = "images/wall.png";
 exit.src = "images/exit.png";
 
@@ -32,6 +34,7 @@ var HEIGHT = 32;
 *2 = Player position
 *3 = block
 *4 = exit
+*5 = water
 */
 var WALL    = 0;
 var MOVABLE = 1;
@@ -329,7 +332,10 @@ drawmap = function () {
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
             }
-           
+            if (object[x] === WATER) {
+                ctx1.drawImage(water, x, y);
+            }
+                       
             x = x + 32;
         }
         x = 0;
