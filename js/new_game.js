@@ -19,7 +19,7 @@ var walls = new Image();
 var bgImage = new Image();
 var exit = new Image();
 var water = new Image();
-
+var boxArray = [];
 water.src = "images/water.png";
 walls.src = "images/wall.png";
 exit.src = "images/exit.png";
@@ -56,8 +56,8 @@ var EXIT_ROW = 12;
 var EXIT_COL = 12;
 
 var gameArray;
-var boxRow = START_ROW_BOX_1;
-var boxCol = START_COL_BOX_1;
+var boxRow = null;
+var boxCol = null;
 var playerRow;
 var playerCol;
 
@@ -97,7 +97,7 @@ monsterImage.src = "images/block.png";
 var hero = {
     speed: 32 // movement in pixels per second
 };
-var monster = {};
+var box = {};
 
 // Handle keyboard controls
 var fired = false;
@@ -131,17 +131,23 @@ function checkUpMovement() {
         hero.y -= hero.speed;
         alert("YOU WIN MF");
     }
+    
     else if (gameArray[playerRow - 1][playerCol] === BOX) {
-        if (gameArray[boxRow - 1][boxCol] !== WALL) {
-            gameArray[boxRow][boxCol] = 1;
-            boxRow--;
-            gameArray[boxRow][boxCol] = BOX;
+        if (gameArray[playerRow - 2][playerCol] !== WALL && gameArray[playerRow - 2][playerCol] !== BOX && gameArray[playerRow - 2][playerCol] !== WATER) {
+            gameArray[playerRow - 1][playerCol] = 1;
+            //boxRow--;
+            gameArray[playerRow - 2][playerCol] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerRow--;
             playerArray[playerRow][playerCol] = PLAYER;
-            monster.y -= hero.speed;
+            box.y -= hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.y -= hero.speed;
+        }
+        else if (gameArray[playerRow - 2][playerCol] === WATER) {
+            gameArray[playerRow - 1][playerCol] = 1;
+            //boxCol++;
+            gameArray[playerRow - 2][playerCol] = 1;
         }
     } 
     else if (playerRow > 0 && gameArray[playerRow - 1][playerCol] !== WALL ) {
@@ -163,16 +169,20 @@ function checkDownMovement() {
         alert("YOU WIN MF");
     }
     else if (gameArray[playerRow + 1][playerCol] === BOX) {
-        if (gameArray[boxRow + 1][boxCol] !== WALL) {
-            gameArray[boxRow][boxCol] = 1;
-            boxRow++;
-            gameArray[boxRow][boxCol] = BOX;
+        if (gameArray[playerRow + 2][playerCol] !== WALL && gameArray[playerRow + 2][playerCol] !== BOX && gameArray[playerRow + 2][playerCol] !== WATER) {
+            gameArray[playerRow + 1][playerCol] = 1;
+            gameArray[playerRow + 2][playerCol] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerRow++;
             playerArray[playerRow][playerCol] = PLAYER;
-            monster.y += hero.speed;
+            box.y += hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.y += hero.speed;
+        }
+        else if (gameArray[playerRow + 2][playerCol] === WATER) {
+            gameArray[playerRow + 1][playerCol] = 1;
+            //boxCol++;
+            gameArray[playerRow + 2][playerCol] = 1;
         }
            
     } 
@@ -195,18 +205,24 @@ function checkLeftMovement() {
         hero.x -= hero.speed;
         alert("YOU WIN MF");
     }
+  
     else if (gameArray[playerRow][playerCol - 1] === BOX) {
-        if (gameArray[boxRow][boxCol - 1] !== WALL) {
-            gameArray[boxRow][boxCol] = 1;
-            boxCol--;
-            gameArray[boxRow][boxCol] = BOX;
+        if (gameArray[playerRow][playerCol - 2] !== WALL && gameArray[playerRow][playerCol - 2] !== BOX && gameArray[playerRow][playerCol - 2] !== WATER) {
+            gameArray[playerRow][playerCol - 1] = 1;
+            //boxCol--;
+            gameArray[playerRow][playerCol - 2] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerCol--;
             playerArray[playerRow][playerCol] = PLAYER;
-            monster.x -= hero.speed;
+            box.x -= hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.x -= hero.speed;
-        } 
+        }
+        else if (gameArray[playerRow][playerCol - 2] === WATER) {
+            gameArray[playerRow][playerCol - 1] = 1;
+            //boxCol++;
+            gameArray[playerRow][playerCol - 2] = 1;
+        }
     } 
     else if (playerRow > 0 && gameArray[playerRow][playerCol - 1] !== WALL ) {
         playerArray[playerRow][playerCol] = 0;
@@ -226,17 +242,23 @@ function checkRightMovement() {
         hero.x += hero.speed;
         alert("YOU WIN MF");
     }
+   
     else if (gameArray[playerRow][playerCol + 1] === BOX) {
-        if (gameArray[boxRow][boxCol + 1] !== WALL) {
-            gameArray[boxRow][boxCol] = 1;
-            boxCol++;
-            gameArray[boxRow][boxCol] = BOX;
+        if (gameArray[playerRow][playerCol + 2] !== WALL && gameArray[playerRow][playerCol + 2] !== BOX && gameArray[playerRow][playerCol + 2] !== WATER) {
+            gameArray[playerRow][playerCol + 1] = 1;
+            //boxCol++;
+            gameArray[playerRow][playerCol + 2] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerCol++;
             playerArray[playerRow][playerCol] = PLAYER;
-            monster.x += hero.speed;
+            box.x += hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.x += hero.speed;
+        }
+        else if (gameArray[playerRow][playerCol + 2] === WATER){
+            gameArray[playerRow][playerCol + 1] = 1;
+            //boxCol++;
+            gameArray[playerRow][playerCol + 2] = 1;
         }
     } 
     else if (playerRow < COL_LENGTH && gameArray[playerRow][playerCol + 1] !== WALL ) {
@@ -272,7 +294,7 @@ var update = function (speed) {
 bgArray = getNextLevel();
  gameArray = bgArray;
         //gameArray[1][1] = PLAYER;
-        gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
+        //gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
         
 // The main game loop
 
@@ -295,8 +317,8 @@ var main = function () {
     if (getResetLevel() === true) {
         bgArray = resetLevel();
         gameArray = bgArray;
-        console.log(playerArray);
-        console.log(gameArray);
+        //console.log(playerArray);
+        //console.log(gameArray);
         //gameArray[1][1] = PLAYER;
         gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
         playerRow = 1;
@@ -332,19 +354,27 @@ drawmap = function () {
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
             }
-            if (object[c] === WATER) {
-                ctx1.drawImage(water, x, y);
-            }
+
             if (object[c] === PLAYER) {
-                ctx1.drawImage(heroImage, x, y);
-                console.log(i, c)
+                //ctx1.drawImage(heroImage, x, y);
+                //console.log(i, c)
                 playerRow = i;
                 playerCol = c;
                 playerArray = getPlayerArray();
                 playerArray[playerRow][playerCol] = PLAYER;
                 
             }
-                       
+                 /*      
+            if (object[c] === BOX) {
+                //ctx1.drawImage(heroImage, x, y);
+                //console.log(i, c)
+                boxRow = i;
+                boxCol = c;
+                box.x = x;
+                box.y = y;
+
+            }*/
+
             x = x + 32;
         }
         x = 0;
@@ -355,15 +385,32 @@ drawmap = function () {
 
 // Draw everything
 var render = function () {
+    var x = 0;
+    var y = 0;
+    var b = 0;
 
+    
     if (heroReady) {
         ctx2.clearRect(0, 0,512,480);
         ctx2.drawImage(heroImage, hero.x, hero.y);
     }
+    for (i = 0; bgArray.length > i; i++) {
+        for (c = 0; bgArray[b].length > c; c++) {
+            object = bgArray[b];
+            if (object[c] === BOX) {
+                ctx2.drawImage(monsterImage, x, y);
+            }
 
-    if (monsterReady) {
-        ctx2.drawImage(monsterImage, monster.x, monster.y);
+            if (object[c] === WATER) {
+                ctx2.drawImage(water, x, y);
+            }
+            x = x + 32;
+        }
+        x = 0;
+        b++;
+        y = y + 32;
     }
+    
 
 };
 
@@ -391,8 +438,9 @@ var Initiate = function () {
 
             }
             if (object[c] === 3){
-                monster.x = x;
-                monster.y = y;
+                box.x = x;
+                box.y = y;
+                
             }
             x = x + 32;
         }
