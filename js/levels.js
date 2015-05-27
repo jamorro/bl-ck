@@ -56,15 +56,7 @@ function getLevel(level) {
 	}
 
 }
-/*
-*0 = inget
-*1 = cannot move here
-*2 = can move here free space
-*3 = Player position
-*4 = block
-*5 = water
-*6 = exit
-*/
+
 function level_1() {
 	return gameLevelArr =  
 	[
