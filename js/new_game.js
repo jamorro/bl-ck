@@ -41,6 +41,7 @@ var MOVABLE = 1;
 var PLAYER  = 2;
 var BOX     = 3;
 var EXIT    = 4;
+var WATER   = 5;
 
 var ROWS_LENGTH = 16;
 var COL_LENGTH = 15;
@@ -48,8 +49,8 @@ var COL_LENGTH = 15;
 var START_ROW_BOX_1 = 8;
 var START_COL_BOX_1 = 11;
 
-var START_ROW_PLAYER = 1;
-var START_COL_PLAYER = 1;
+var START_ROW_PLAYER;
+var START_COL_PLAYER;
 
 var EXIT_ROW = 12;
 var EXIT_COL = 12;
@@ -57,8 +58,8 @@ var EXIT_COL = 12;
 var gameArray;
 var boxRow = START_ROW_BOX_1;
 var boxCol = START_COL_BOX_1;
-var playerRow = 1;
-var playerCol = 1;
+var playerRow;
+var playerCol;
 
 
 //JUST DRAWS OUT THE MAP
@@ -270,10 +271,9 @@ var update = function (speed) {
 
 bgArray = getNextLevel();
  gameArray = bgArray;
-        gameArray[1][1] = PLAYER;
+        //gameArray[1][1] = PLAYER;
         gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-        playerArray = getPlayerArray();
-        playerArray[playerRow][playerCol] = PLAYER;
+        
 // The main game loop
 
 function updateNewLevel() {
@@ -297,7 +297,7 @@ var main = function () {
         gameArray = bgArray;
         console.log(playerArray);
         console.log(gameArray);
-        gameArray[1][1] = PLAYER;
+        //gameArray[1][1] = PLAYER;
         gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
         playerRow = 1;
         playerCol = 1;
@@ -332,8 +332,17 @@ drawmap = function () {
             if (object[c] === EXIT) {
                 ctx1.drawImage(exit, x, y);
             }
-            if (object[x] === WATER) {
+            if (object[c] === WATER) {
                 ctx1.drawImage(water, x, y);
+            }
+            if (object[c] === PLAYER) {
+                ctx1.drawImage(heroImage, x, y);
+                console.log(i, c)
+                playerRow = i;
+                playerCol = c;
+                playerArray = getPlayerArray();
+                playerArray[playerRow][playerCol] = PLAYER;
+                
             }
                        
             x = x + 32;
