@@ -18,13 +18,7 @@ function setNewLevel(val) {
     new_level_check = val;
 }
 
-//Button in index.html
-function activateNextLevel() {
-    if (getAmountOfLevels() !== CURRENT_LEVEL) {
-        CURRENT_LEVEL++;
-        levelHandler(CURRENT_LEVEL);
-    }
-}
+
 
 function getResetLevel() {
 	return reset_level_check;
@@ -32,6 +26,18 @@ function getResetLevel() {
 
 function setResetLevel(val) {
 	reset_level_check = val;
+}
+
+function progressLevels() {
+    CURRENT_LEVEL++;
+    levelHandler(CURRENT_LEVEL);
+}
+//Button in index.html
+function activateNextLevel() {
+    if (getAmountOfLevels() !== CURRENT_LEVEL) {
+        CURRENT_LEVEL++;
+        levelHandler(CURRENT_LEVEL);
+    }
 }
 
 //Button in index.html
