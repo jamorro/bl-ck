@@ -45,6 +45,7 @@ function getNextLevel() {
 }
 
 function getPreviousLevel() {
+    if (CURRENT_LEVEL > 1) {
         CURRENT_LEVEL--;
         levelHandler(CURRENT_LEVEL);
 
