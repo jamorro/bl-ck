@@ -1,0 +1,12 @@
+
+.btn-start-menu {
+	float: left;
+}
+.btn-start-menu li {
+	
+	list-style-type: none;
+}
+
+.btn-start-menu button {
+	width: 100%;
+}

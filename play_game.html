@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Canvas Game</title>
+        <link rel="stylesheet" type="text/css" href="css/play_game.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/levelhandler.js"></script>
+        <script src="js/levels.js"></script>
+        
+        <script src="js/logic.js"></script>
+    </head>
+    <body>
+    	<div id="container">
+
+    	<img src="images/logo_small.png">
+    	
+    	<div id="mid-container">
+    		<div id="mid-left">Tralal</div>
+	        <div id="canvasesdiv" style="">
+	            <canvas id="layer1"
+	                style="z-index: 1;
+	                position:absolute;
+	                left:0px;
+	                top:0px;
+	                " height="480px" width="512">
+	                This text is displayed ifsadf your browser does not support HTML5 Canvas.
+	            </canvas>
+	            <canvas id="layer2"
+	                style="z-index: 2;
+	                position:absolute;
+	                left:0px;
+	                top:0px;
+	                " height="480px" width="512">
+	                This text is displayed if your browser does not support HTML5 Canvas.
+	            </canvas>
+	                <canvas id="layer3"
+	                style="z-index: 3;
+	                position:absolute;
+	                left:0px;
+	                top:0px;
+	                " height="480px" width="512">
+	                    This text is displayed if your browser does not support HTML5 Canvas.
+	            </canvas>
+	        </div>
+	        <div id="mid-right">
+    	      	<button onclick="alert()">Previous</button>
+		        <button onclick="activateNextLevel()">Next</button>
+		        <button onclick="activateResetLevel()">Reset</button>
+	        </div>
+   		</div>
+
+  
+        <script src="js/new_game.js"></script>
+    </div>
+    </body>
+
+</html>
