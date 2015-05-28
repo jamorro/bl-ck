@@ -138,7 +138,7 @@ function checkUpMovement() {
         activateNextLevel();
     }
     
-    else if (gameArray[playerRow - 1][playerCol] === BOX) {
+    else if (gameArray[playerRow - 1][playerCol] === BOX && gameArray[playerRow - 1][playerCol] !== WATER) {
         if (gameArray[playerRow - 2][playerCol] !== WALL && gameArray[playerRow - 2][playerCol] !== BOX && gameArray[playerRow - 2][playerCol] !== WATER) {
             gameArray[playerRow - 1][playerCol] = 1;
             //boxRow--;
@@ -156,7 +156,7 @@ function checkUpMovement() {
             gameArray[playerRow - 2][playerCol] = 1;
         }
     } 
-    else if (playerRow > 0 && gameArray[playerRow - 1][playerCol] !== WALL ) {
+    else if (playerRow > 0 && gameArray[playerRow - 1][playerCol] !== WALL && gameArray[playerRow - 1][playerCol] !== WATER) {
         playerArray[playerRow][playerCol] = 0;
         playerRow--;
         playerArray[playerRow][playerCol] = PLAYER;
@@ -193,7 +193,7 @@ function checkDownMovement() {
         }
            
     } 
-    else if (playerRow < ROWS_LENGTH && gameArray[playerRow + 1][playerCol] !== WALL ) {
+    else if (playerRow < ROWS_LENGTH && gameArray[playerRow + 1][playerCol] !== WALL && gameArray[playerRow + 1][playerCol] !== WATER) {
         playerArray[playerRow][playerCol] = 0;
         playerRow++;
         playerArray[playerRow][playerCol] = PLAYER;
@@ -232,7 +232,7 @@ function checkLeftMovement() {
             gameArray[playerRow][playerCol - 2] = 1;
         }
     } 
-    else if (playerRow > 0 && gameArray[playerRow][playerCol - 1] !== WALL ) {
+    else if (playerRow > 0 && gameArray[playerRow][playerCol - 1] !== WALL && gameArray[playerRow][playerCol - 1] !== WATER) {
         playerArray[playerRow][playerCol] = 0;
         playerCol--;
         playerArray[playerRow][playerCol] = PLAYER;
@@ -270,7 +270,7 @@ function checkRightMovement() {
             gameArray[playerRow][playerCol + 2] = 1;
         }
     } 
-    else if (playerRow < COL_LENGTH && gameArray[playerRow][playerCol + 1] !== WALL ) {
+    else if (playerRow < COL_LENGTH && gameArray[playerRow][playerCol + 1] !== WALL && gameArray[playerRow][playerCol + 1] !== WATER) {
         playerArray[playerRow][playerCol] = 0;
         playerCol++;
         playerArray[playerRow][playerCol] = PLAYER;
