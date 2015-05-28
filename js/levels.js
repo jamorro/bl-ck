@@ -25,6 +25,8 @@
 var gameLevelArr;
 var playerArr;
 
+
+
 function getPlayerArray() {
 	return playerArr = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

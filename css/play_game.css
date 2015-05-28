@@ -46,6 +46,7 @@
 	color: #fff;
 	font-family: "pixelish";
 	font-size: 1.3em;
+	list-style-type: none;
 }
 
 #canvasesdiv {
@@ -59,7 +60,24 @@
 #mid-right {
 	float: left;
 	width: 350px;
+	text-decoration: none;
 }
+
+#mid-right li {
+	background: #455868;
+	border: 2px solid white;
+	list-style-type: none;
+	color: #FFF;
+	height: 35px;
+	text-align: center;
+	font-size: 20px;
+	padding-top: 5px;
+}
+
+#mid-right li p {
+	margin: 0 auto;
+}
+
 
 @media screen and (max-width: 959px) {
 	#container {

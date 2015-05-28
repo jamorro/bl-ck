@@ -5,9 +5,10 @@
         <title>Simple Canvas Game</title>
         <link rel="stylesheet" type="text/css" href="css/play_game.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery/jquery-2.1.4.min.js"></script>
         <script src="js/levelhandler.js"></script>
         <script src="js/levels.js"></script>
-        
+        <script src="js/level_dropdown.js"></script>
         <script src="js/logic.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="normalize.css">
@@ -45,16 +46,16 @@
 		<ul class="clearfix">
 			<li><a href="#">Exit</a></li>
 			<li><a href="#">Tutorial</a></li>
+			<li><a href="#">Language</a></li>
 			<li><a href="#">Mute Sound</a></li>
 			<li><a href="#">Reset</a></li>
-			<li><a href="#">Language</a></li>
 		</ul>
 		<a href="#" id="pull">Menu</a>
 	</nav>
     	<div id="mid-container">
     		<div id="mid-left">
-    			<h2>Keybindings</h2>
-    			<li>ESC -> Exit Game</li>
+    			<h2>Shortcuts</h2>
+    			<li>ESC-> Exit Game</li>
     			<li>R -> Reset Level</li>
     			<li>Left arrow -> Go left</li>
     			<li>Right arrow -> Go right</li>
@@ -89,6 +90,8 @@
 	            </canvas>
 	        </div>
 	        <div id="mid-right">
+	        	
+	        	
     	      	<button onclick="alert()">Previous</button>
 		        <button onclick="activateNextLevel()">Next</button>
 		        <button onclick="activateResetLevel()">Reset</button>
