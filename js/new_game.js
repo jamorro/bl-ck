@@ -98,6 +98,7 @@ addEventListener("keydown", function (e) {
         keysDown[e.keyCode] = true;
         fired = true;
         update();
+        console.log(e.keyCode);
     };
     
 }, false);
@@ -113,19 +114,17 @@ addEventListener("keyup", function (e) {
 function checkUpMovement() {
 
     if (gameArray[playerRow - 1][playerCol] === EXIT) {
+        playDinoEatingSound();
         playerArray[playerRow][playerCol] = 0;
         playerRow--;
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
-        //alert("YOU WIN MF");
         activateNextLevel();
     }
-    
     else if (gameArray[playerRow - 1][playerCol] === BOX && gameArray[playerRow - 1][playerCol] !== WATER) {
         if (gameArray[playerRow - 2][playerCol] !== WALL && gameArray[playerRow - 2][playerCol] !== BOX && gameArray[playerRow - 2][playerCol] !== WATER) {
             gameArray[playerRow - 1][playerCol] = 1;
-            //boxRow--;
             gameArray[playerRow - 2][playerCol] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerRow--;
@@ -136,7 +135,6 @@ function checkUpMovement() {
         }
         else if (gameArray[playerRow - 2][playerCol] === WATER) {
             gameArray[playerRow - 1][playerCol] = 1;
-            //boxCol++;
             gameArray[playerRow - 2][playerCol] = 1;
         }
     } 
@@ -150,13 +148,14 @@ function checkUpMovement() {
 }
 
 function checkDownMovement() {
+
     if (gameArray[playerRow + 1][playerCol] === EXIT) {
+        playDinoEatingSound();
         playerArray[playerRow][playerCol] = 0;
         playerRow++;
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
-        //alert("YOU WIN MF");
         activateNextLevel();
     }
     else if (gameArray[playerRow + 1][playerCol] === BOX) {
@@ -172,10 +171,8 @@ function checkDownMovement() {
         }
         else if (gameArray[playerRow + 2][playerCol] === WATER) {
             gameArray[playerRow + 1][playerCol] = 1;
-            //boxCol++;
             gameArray[playerRow + 2][playerCol] = 1;
-        }
-           
+        }    
     } 
     else if (playerRow < ROWS_LENGTH && gameArray[playerRow + 1][playerCol] !== WALL && gameArray[playerRow + 1][playerCol] !== WATER) {
         playerArray[playerRow][playerCol] = 0;
@@ -189,6 +186,7 @@ function checkDownMovement() {
 function checkLeftMovement() {
     
     if (gameArray[playerRow][playerCol - 1] === EXIT) {
+        playDinoEatingSound();
         playerArray[playerRow][playerCol] = 0;
         playerCol--;
         playerArray[playerRow][playerCol] = PLAYER;
@@ -197,7 +195,6 @@ function checkLeftMovement() {
         //alert("YOU WIN MF");
         activateNextLevel();
     }
-  
     else if (gameArray[playerRow][playerCol - 1] === BOX) {
         if (gameArray[playerRow][playerCol - 2] !== WALL && gameArray[playerRow][playerCol - 2] !== BOX && gameArray[playerRow][playerCol - 2] !== WATER) {
             gameArray[playerRow][playerCol - 1] = 1;
@@ -212,7 +209,6 @@ function checkLeftMovement() {
         }
         else if (gameArray[playerRow][playerCol - 2] === WATER) {
             gameArray[playerRow][playerCol - 1] = 1;
-            //boxCol++;
             gameArray[playerRow][playerCol - 2] = 1;
         }
     } 
@@ -227,6 +223,7 @@ function checkLeftMovement() {
 
 function checkRightMovement() {
     if (gameArray[playerRow][playerCol + 1] === EXIT) {
+        playDinoEatingSound();
         playerArray[playerRow][playerCol] = 0;
         playerCol++;
         playerArray[playerRow][playerCol] = PLAYER;
@@ -297,14 +294,26 @@ var update = function (speed) {
         setHeroPicture(heroRight);
         checkRightMovement();
     }
+    //ESC
+    if (27 in keysDown) {
+        window.location = "start_screen.html";
+    }
+    //MUTE
+    if (77 in keysDown) {
+        muteSound();
+    }
+    //RESET
+    if (82 in keysDown) {
+        levelHandler(getCurrentLevel());
+    }
+
 };
 
  
 // The function in charge of changing or resetting the levels
  function levelHandler(levelNR) {
-    playDinoEatingSound()
-    createLevelList()
-    console.log(levelNR)
+    
+    createLevelList();
     bgArray = getLevel(levelNR);
     playerArray = getPlayerArray();
     gameArray = bgArray;

@@ -6,13 +6,18 @@ function playBackgroundMusic() {
 }
 
 function muteSound() {
-    document.getElementById("audio-player").volume = 0;
-    document.getElementById("audio-dino-eating").volume = 0;
-}
 
-function unMuteSound() {
-    document.getElementById("audio-player").volume = 1;
-    document.getElementById("audio-dino-eating").volume = 1;
+    if (SOUND_ON_OR_OFF === true) {
+		document.getElementById("audio-player").volume = 0;
+		document.getElementById("audio-dino-eating").volume = 0;
+		SOUND_ON_OR_OFF = false;
+		$("#menu-sound").html("Unmute Sound");
+	} else {
+		document.getElementById("audio-player").volume = 1;
+		document.getElementById("audio-dino-eating").volume = 1;
+		SOUND_ON_OR_OFF = true;
+		$("#menu-sound").html("Mute Sound");
+	}
 }
 
 function playDinoEatingSound() {
@@ -20,18 +25,8 @@ function playDinoEatingSound() {
 	dinoRoar.play();
 }
 
-
-
 $(document).ready(function(){
 	$("#menu-sound").click(function() {
-		if (SOUND_ON_OR_OFF === true) {
-			muteSound();
-			SOUND_ON_OR_OFF = false;
-			$("#menu-sound").html("Unmute Sound");
-		} else {
-			unMuteSound();
-			SOUND_ON_OR_OFF = true;
-			$("#menu-sound").html("Mute Sound");
-		}
+		muteSound();
 	});
 });

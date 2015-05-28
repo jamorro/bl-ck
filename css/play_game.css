@@ -26,8 +26,6 @@
 #container {
 	width: 1216px;
 	margin: 0px auto;
-	
-	border: 2px solid red;
 }
 #container-logo {
 	width: 500px;
@@ -39,7 +37,6 @@
 }
 
 #mid-container {
-	border: 2px solid yellow;
 	background: #455868;
 }
 #mid-left {
