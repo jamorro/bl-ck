@@ -62,7 +62,7 @@ var playerCol;
 var bgArray;
 
 var playerArray;
-
+var goal = 1;
 
 
 bgImage.onload = function () {
@@ -126,7 +126,6 @@ addEventListener("keyup", function (e) {
 
 
 
-
 function checkUpMovement() {
 
     if (gameArray[playerRow - 1][playerCol] === EXIT) {
@@ -136,6 +135,7 @@ function checkUpMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
         alert("YOU WIN MF");
+        activateNextLevel();
     }
     
     else if (gameArray[playerRow - 1][playerCol] === BOX) {
@@ -173,6 +173,7 @@ function checkDownMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
         alert("YOU WIN MF");
+        activateNextLevel();
     }
     else if (gameArray[playerRow + 1][playerCol] === BOX) {
         if (gameArray[playerRow + 2][playerCol] !== WALL && gameArray[playerRow + 2][playerCol] !== BOX && gameArray[playerRow + 2][playerCol] !== WATER) {
@@ -210,6 +211,7 @@ function checkLeftMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
         alert("YOU WIN MF");
+        activateNextLevel();
     }
   
     else if (gameArray[playerRow][playerCol - 1] === BOX) {
@@ -247,6 +249,7 @@ function checkRightMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
         alert("YOU WIN MF");
+        activateNextLevel();
     }
    
     else if (gameArray[playerRow][playerCol + 1] === BOX) {
