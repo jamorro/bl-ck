@@ -78,7 +78,7 @@ heroImage.onload = function () {
     heroReady = true;
 };
 
-heroImage.src = "images/hero.png";
+heroImage.src = "images/heroDown.png";
 
 var heroRight = new Image();
 var heroLeft = new Image();
