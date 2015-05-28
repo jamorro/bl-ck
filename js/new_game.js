@@ -80,6 +80,17 @@ heroImage.onload = function () {
 
 heroImage.src = "images/hero.png";
 
+var heroRight = new Image();
+var heroLeft = new Image();
+var heroDown = new Image();
+var heroUp = new Image();
+
+heroRight.src = "images/heroRight.png";
+heroLeft.src = "images/heroLeft.png";
+heroUp.src = "images/heroUp.png";
+heroDown.src = "images/heroDown.png";
+
+
 // Monster image
 var monsterReady = false;
 var monsterImage = new Image();
@@ -264,33 +275,41 @@ function checkRightMovement() {
         hero.x += hero.speed;
     }
 }
+var heroMovementPicture = heroImage;
+function setHeroPicture(tmpImg) {
+    heroMovementPicture = tmpImg;
+}
 
-
+function getHeroPicture() {
+    return heroMovementPicture;
+}
 // Update game objects
 var update = function (speed) {
     //MOVE UP
     if (38 in keysDown ) {
+        setHeroPicture(heroUp);
         checkUpMovement();
     }
     //MOVE DOWN
     if (40 in keysDown ) {
+        setHeroPicture(heroDown);
         checkDownMovement();
     }
     //MOVE LEFT
     if (37 in keysDown) {
+        setHeroPicture(heroLeft);
         checkLeftMovement();
     }
     //MOVE RIGHT
     if (39 in keysDown) {
+        setHeroPicture(heroRight);
         checkRightMovement();
     }
 };
 
  bgArray = getNextLevel();
  gameArray = bgArray;
-        //gameArray[1][1] = PLAYER;
-        //gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-        
+
 // The main game loop
  function levelHandler(levelNR, reset) {
      console.log(levelNR)
@@ -319,26 +338,13 @@ var main = function () {
     if (getResetLevel() === true) {
         bgArray = resetLevel();
         gameArray = bgArray;
-
         playerArray = getPlayerArray();
-
-        //console.log(playerArray);
-        //console.log(gameArray);
-        //gameArray[1][1] = PLAYER;
-        //gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-        //playerRow = 1;
-        //playerCol = 1;
-        //playerArray = getPlayerArray();
-        //playerArray[playerRow][playerCol] = PLAYER;
         drawmap();
         setResetLevel(false);
     }
     render();
     requestAnimationFrame(main);
 };
-
-
-
 
 drawmap = function () {
     
@@ -396,8 +402,8 @@ var render = function () {
     var y = 0;
     var b = 0;
     ctx2.clearRect(0, 0, 512, 480);
-    ctx2.drawImage(heroImage, hero.x, hero.y);
-
+    //console.log(getHeroPicture());
+    ctx2.drawImage(getHeroPicture(), hero.x, hero.y);
 
     for (i = 0; bgArray.length > i; i++) {
         for (c = 0; bgArray[b].length > c; c++) {
@@ -414,18 +420,9 @@ var render = function () {
         b++;
         y = y + 32;
     }
-    
-
 };
 
 
-function setBgArray(tmpBgArr) {
-    bgArray = tmpBgArr;
-}
-
-function getBgArray() {
-    return bgArray;
-}
 // Reset the game when the player catches a monster
 
 var Initiate = function () {
