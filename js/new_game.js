@@ -1,20 +1,20 @@
-
+//initiating the different layers of canvas needed
 var layer1;
 var layer2;
 var layer3;
 var ctx1;
 var ctx2;
-var ctx3;
+//var ctx3;
 layer1 = document.getElementById("layer1");
 ctx1 = layer1.getContext("2d");
 layer2 = document.getElementById("layer2");
 ctx2 = layer2.getContext("2d");
-layer3 = document.getElementById("layer3");
-ctx3 = layer3.getContext("2d");
+//layer3 = document.getElementById("layer3");
+//ctx3 = layer3.getContext("2d");
 //15*16
 // Background image
-var bgReady = false;
 
+//
 var walls = new Image();
 var bgImage = new Image();
 var exit = new Image();
@@ -23,45 +23,6 @@ var boxArray = [];
 water.src = "images/water.png";
 walls.src = "images/wall.png";
 exit.src = "images/exit.png";
-
-
-
-var WIDTH = 32;
-var HEIGHT = 32;
-/*
-*0 = cannot move here
-*1 = can move here free space
-*2 = Player position
-*3 = block
-*4 = exit
-*5 = water
-*/
-var WALL    = 0;
-var MOVABLE = 1;
-var PLAYER  = 2;
-var BOX     = 3;
-var EXIT    = 4;
-var WATER   = 5;
-var ROWS_LENGTH = 16;
-var COL_LENGTH = 15;
-var START_ROW_PLAYER;
-var START_COL_PLAYER;
-var EXIT_ROW = 12;
-var EXIT_COL = 12;
-var gameArray;
-var playerRow;
-var playerCol;
-var bgArray;
-var playerArray;
-var goal = 1;
-
-bgArray = getNextLevel();
-gameArray = bgArray;
-
-bgImage.onload = function () {
-    drawmap();
-}
-
 bgImage.src = "images/Tile.png";
 
 // Hero images
@@ -81,6 +42,46 @@ heroDown.src = "images/heroDown.png";
 var boxImage = new Image();
 boxImage.src = "images/block.png";
 
+//size of each square
+var WIDTH = 32;
+var HEIGHT = 32;
+/*
+*0 = cannot move here
+*1 = can move here free space
+*2 = Player position
+*3 = block
+*4 = exit
+*5 = water
+*/
+var WALL    = 0;
+var MOVABLE = 1;
+var PLAYER  = 2;
+var BOX     = 3;
+var EXIT    = 4;
+var WATER = 5;
+
+//defining variables
+var ROWS_LENGTH = 16;
+var COL_LENGTH = 15;
+var START_ROW_PLAYER;
+var START_COL_PLAYER;
+var gameArray;
+var playerRow;
+var playerCol;
+var bgArray;
+var playerArray;
+var goal = 1;
+
+bgArray = getNextLevel();
+gameArray = bgArray;
+
+//when the background has loaded draw the map.
+bgImage.onload = function () {
+    drawmap();
+}
+
+
+
 // Game objects
 var hero = {
     speed: 32 // movement in pixels per second
@@ -91,6 +92,7 @@ var box = {};
 var fired = false;
 var keysDown = [];
 
+//eventlisterners for movement
 addEventListener("keydown", function (e) {
     if (!fired && keysDown.length === 0){
         keysDown[e.keyCode] = true;
@@ -107,7 +109,7 @@ addEventListener("keyup", function (e) {
 }, false);
 
 
-
+//functions that handle the main movement. The character moves around in a array and the system keeps track of the position of the hero and the other elements via these 2 arrays
 function checkUpMovement() {
 
     if (gameArray[playerRow - 1][playerCol] === EXIT) {
@@ -261,6 +263,8 @@ function checkRightMovement() {
         hero.x += hero.speed;
     }
 }
+
+//handles the switching of images based on direction
 var heroMovementPicture = heroImage;
 
 function setHeroPicture(tmpImg) {
@@ -270,6 +274,7 @@ function setHeroPicture(tmpImg) {
 function getHeroPicture() {
     return heroMovementPicture;
 }
+
 // Update game objects
 var update = function (speed) {
     //MOVE UP
@@ -295,7 +300,7 @@ var update = function (speed) {
 };
 
  
-// The main game loop
+// The function in charge of changing or resetting the levels
  function levelHandler(levelNR) {
     playDinoEatingSound()
     createLevelList()
@@ -307,12 +312,13 @@ var update = function (speed) {
     render();
  }
 
-
+//The main game loop
 var main = function () {
     render();
     requestAnimationFrame(main);
 };
 
+//draws the objects onto the map based on the array
 drawmap = function () {
     
     var x = 0;
@@ -352,7 +358,7 @@ drawmap = function () {
     }
 }
 
-// Draw everything
+// Draws the new position of things
 var render = function () {
     var x = 0;
     var y = 0;
@@ -386,12 +392,13 @@ var render = function () {
 var then = Date.now();
 
 
-
+//plays music
 playBackgroundMusic();
+
 // Cross-browser support for requestAnimationFrame
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
-// Let's play this game!
+// Loops the document
 main();
 createLevelList();
