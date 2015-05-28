@@ -317,13 +317,16 @@ var update = function (speed) {
 
 // The main game loop
  function levelHandler(levelNR) {
-     console.log(levelNR)
-     bgArray = getLevel(levelNR);
-     playerArray = getPlayerArray();
-     gameArray = bgArray;
-     drawmap();
-     render();
+    playDinoEatingSound()
+    createLevelList()
+    console.log(levelNR)
+    bgArray = getLevel(levelNR);
+    playerArray = getPlayerArray();
+    gameArray = bgArray;
+    drawmap();
+    render();
  }
+
 function updateNewLevel() {
     bgArray = getNextLevel();
     gameArray = bgArray;
@@ -461,15 +464,18 @@ var Initiate = function () {
     }
     
 };
+var then = Date.now();
 
+
+
+playBackgroundMusic();
 // Cross-browser support for requestAnimationFrame
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Let's play this game!
-var then = Date.now();
-var backGroundSound = document.getElementById("audio-player");
-//backGroundSound.play();
+
+
 main();
 Initiate();
 createLevelList();
