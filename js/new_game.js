@@ -134,7 +134,7 @@ function checkUpMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
-        alert("YOU WIN MF");
+        //alert("YOU WIN MF");
         activateNextLevel();
     }
     
@@ -172,7 +172,7 @@ function checkDownMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
-        alert("YOU WIN MF");
+        //alert("YOU WIN MF");
         activateNextLevel();
     }
     else if (gameArray[playerRow + 1][playerCol] === BOX) {
@@ -210,7 +210,7 @@ function checkLeftMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
-        alert("YOU WIN MF");
+        //alert("YOU WIN MF");
         activateNextLevel();
     }
   
@@ -248,7 +248,7 @@ function checkRightMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
-        alert("YOU WIN MF");
+        //alert("YOU WIN MF");
         activateNextLevel();
     }
    
