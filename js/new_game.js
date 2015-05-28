@@ -414,7 +414,7 @@ var render = function () {
     ctx2.clearRect(0, 0, 512, 480);
     //console.log(getHeroPicture());
     ctx2.drawImage(getHeroPicture(), hero.x, hero.y);
-    
+    ctx1.drawImage(bgImage, hero.x, hero.y);
     for (i = 0; bgArray.length > i; i++) {
         for (c = 0; bgArray[b].length > c; c++) {
             object = bgArray[b];
