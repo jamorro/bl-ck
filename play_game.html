@@ -6,6 +6,8 @@
         <link rel="stylesheet" type="text/css" href="css/play_game.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/jquery/jquery-2.1.4.min.js"></script>
+        <script src="js/i18next-1.7.7.min.js" ></script>
+    	<script src="js/internat.js"> </script>
         <script src="js/audio_player.js"></script>
         <script src="js/levelhandler.js"></script>
         <script src="js/levels.js"></script>
@@ -14,8 +16,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>
 		$(function() {
 			var pull 		= $('#pull');
@@ -37,9 +37,7 @@
 	</script>
     </head>
     <body class="background-image">
-    	<button onclick="getPreviousLevel()">Previous</button>
-        <button onclick="activateNextLevel()">Next</button>
-        <button onclick="activateResetLevel()">Reset</button>
+    	
     	<div id="container" >
     	
     	<div id="container-logo">
@@ -49,7 +47,7 @@
 		<ul class="clearfix">
 			<li><a href="#">Exit</a></li>
 			<li><a href="#">Tutorial</a></li>
-			<li><a href="#">Language</a></li>
+			<li><a id="btn-lang" href="#">Language</a></li>
 			<li><a href="#" id="menu-sound">Mute Sound</a></li>
 			<li><a href="#" onclick="playDinoEatingSound()">Reset</a></li>
 		</ul>
@@ -57,16 +55,14 @@
 	</nav>
     	<div id="mid-container">
     		<div id="mid-left">
-    			<h2>Shortcuts</h2>
-    			<li>ESC: Exit Game</li>
-    			<li>R: Reset Level</li>
-    			<li>M: Mute sound</li>
-    			<li>Left Arrow: Go left</li>
-    			<li>Right Arrow: Go right</li>
-    			<li>Up Arrow: Go up</li>
-    			<li>Down Arrow: Go down</li><br>
-
-    			
+    			<h2 class="controls" data-i18n="controls.controls"></h2>
+    			<li class="controls" data-i18n="controls.esc"></li>
+    			<li class="controls" data-i18n="controls.reset"></li>
+    			<li class="controls" data-i18n="controls.left"></li>
+    			<li class="controls" data-i18n="controls.right"></li>
+    			<li class="controls" data-i18n="controls.up"></li>
+    			<li class="controls" data-i18n="controls.down"></li>
+    			<li class="controls" data-i18n="controls.mute"></li>
     		</div>
 	        <div id="canvasesdiv" style="">
 	            <canvas id="layer1"
@@ -99,10 +95,12 @@
 	        	
     	      	
 	        </div>
-	        
+	        <button onclick="getPreviousLevel()">Previous</button>
+		        <button onclick="activateNextLevel()">Next</button>
+		        <button onclick="activateResetLevel()">Reset</button>
    		</div>
-		
-   		<audio id="audio-player" src="sound/lol.mp3" preload="auto">
+
+   		<audio id="audio-player" src="sound/down_under.mp3" preload="auto">
    	 	<audio id="audio-dino-eating" src="sound/dino_roar.mp3" preload="auto">
         <script src="js/new_game.js"></script>
     </div>

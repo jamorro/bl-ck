@@ -11,17 +11,17 @@
     "right": "Right arrow -> Go right",
     "up": "Up arrow -> Go up",
     "down": "down arrow -> Go down",
-    "music_off": "M -> Music off",
-    "music_on": "M -> Music on"
+    "mute": "M -> Mute sound",
+    "unmute": "M -> Unmute sound"
   },
 
   "menu": {
     "exit": "Exit game",
     "tutorial": "Tutorial",
     "language": "Language",
-    "music_off": "M -> Music off",
-    "music_on": "M -> Music on",
-    "reset": "Reset",
+    "mute": "Mute sound",
+    "unmute": "Unmute sound",
+    "reset": "Reset level",
     "level": "Level"
   }
 

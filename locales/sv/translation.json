@@ -11,17 +11,17 @@
     "right": "Pil höger -> Gå höger",
     "up": "Pil upp -> Gå upp",
     "down": "Pil ner -> Gå ner",
-    "music_off": "M -> Musik av",
-    "music_on": "M -> Musik på"
+    "mute": "M -> Ljud av",
+    "unmute": "M -> Ljud på"
   },
 
   "menu": {
     "exit": "Avsluta",
     "tutorial": "Tutorial",
     "language": "Språk",
-    "music_off": "Musik av",
-    "music_on": "Musik på",
-    "reset": "Återställ",
+    "mute": "Ljud av",
+    "unmute": "Ljud på",
+    "reset": "Återställ nivå",
     "level": "Nivå"
   }
 
