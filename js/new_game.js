@@ -20,7 +20,7 @@ var bgImage = new Image();
 var exit = new Image();
 var water = new Image();
 var boxArray = [];
-water.src = "images/water.png";
+water.src = "images/fire.jpg";
 walls.src = "images/wall.png";
 exit.src = "images/exit.png";
 
