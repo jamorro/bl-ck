@@ -327,7 +327,7 @@ var update = function (speed) {
     render();
  }
 
-function updateNewLevel() {
+ function updateNewLevel() {
     bgArray = getNextLevel();
     gameArray = bgArray;
     gameArray[1][1] = PLAYER;
@@ -359,6 +359,8 @@ drawmap = function () {
     var x = 0;
     var y = 0;
     var b = 0;
+    ctx2.clearRect(0, 0, 512, 480);
+    ctx1.clearRect(0, 0, 512, 480);
     ctx1.drawImage(bgImage, hero.x, hero.y);
     for (i = 0; i < bgArray.length; i++) {
 
