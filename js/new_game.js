@@ -119,9 +119,9 @@ addEventListener("keyup", function (e) {
 function checkUpMovement() {
 
     if (gameArray[playerRow - 1][playerCol] === EXIT) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerRow--;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
         alert("YOU WIN MF");
@@ -132,9 +132,9 @@ function checkUpMovement() {
             gameArray[playerRow - 1][playerCol] = 1;
             //boxRow--;
             gameArray[playerRow - 2][playerCol] = BOX;
-            playerArray[playerRow][playerCol] = 0;
+            gameArray[playerRow][playerCol] = 0;
             playerRow--;
-            playerArray[playerRow][playerCol] = PLAYER;
+            gameArray[playerRow][playerCol] = PLAYER;
             box.y -= hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.y -= hero.speed;
@@ -146,9 +146,9 @@ function checkUpMovement() {
         }
     } 
     else if (playerRow > 0 && gameArray[playerRow - 1][playerCol] !== WALL ) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerRow--;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
     }
@@ -156,9 +156,9 @@ function checkUpMovement() {
 
 function checkDownMovement() {
     if (gameArray[playerRow + 1][playerCol] === EXIT) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerRow++;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
         alert("YOU WIN MF");
@@ -167,9 +167,9 @@ function checkDownMovement() {
         if (gameArray[playerRow + 2][playerCol] !== WALL && gameArray[playerRow + 2][playerCol] !== BOX && gameArray[playerRow + 2][playerCol] !== WATER) {
             gameArray[playerRow + 1][playerCol] = 1;
             gameArray[playerRow + 2][playerCol] = BOX;
-            playerArray[playerRow][playerCol] = 0;
+            gameArray[playerRow][playerCol] = 0;
             playerRow++;
-            playerArray[playerRow][playerCol] = PLAYER;
+            gameArray[playerRow][playerCol] = PLAYER;
             box.y += hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.y += hero.speed;
@@ -182,9 +182,9 @@ function checkDownMovement() {
            
     } 
     else if (playerRow < ROWS_LENGTH && gameArray[playerRow + 1][playerCol] !== WALL ) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerRow++;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
     }
@@ -193,9 +193,9 @@ function checkDownMovement() {
 function checkLeftMovement() {
     
     if (gameArray[playerRow][playerCol - 1] === EXIT) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerCol--;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
         alert("YOU WIN MF");
@@ -206,9 +206,9 @@ function checkLeftMovement() {
             gameArray[playerRow][playerCol - 1] = 1;
             //boxCol--;
             gameArray[playerRow][playerCol - 2] = BOX;
-            playerArray[playerRow][playerCol] = 0;
+            gameArray[playerRow][playerCol] = 0;
             playerCol--;
-            playerArray[playerRow][playerCol] = PLAYER;
+            gameArray[playerRow][playerCol] = PLAYER;
             box.x -= hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.x -= hero.speed;
@@ -220,9 +220,9 @@ function checkLeftMovement() {
         }
     } 
     else if (playerRow > 0 && gameArray[playerRow][playerCol - 1] !== WALL ) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerCol--;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
     }
@@ -230,9 +230,9 @@ function checkLeftMovement() {
 
 function checkRightMovement() {
     if (gameArray[playerRow][playerCol + 1] === EXIT) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerCol++;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
         alert("YOU WIN MF");
@@ -243,9 +243,9 @@ function checkRightMovement() {
             gameArray[playerRow][playerCol + 1] = 1;
             //boxCol++;
             gameArray[playerRow][playerCol + 2] = BOX;
-            playerArray[playerRow][playerCol] = 0;
+            gameArray[playerRow][playerCol] = 0;
             playerCol++;
-            playerArray[playerRow][playerCol] = PLAYER;
+            gameArray[playerRow][playerCol] = PLAYER;
             box.x += hero.speed;
             ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
             hero.x += hero.speed;
@@ -257,9 +257,9 @@ function checkRightMovement() {
         }
     } 
     else if (playerRow < COL_LENGTH && gameArray[playerRow][playerCol + 1] !== WALL ) {
-        playerArray[playerRow][playerCol] = 0;
+        gameArray[playerRow][playerCol] = 0;
         playerCol++;
-        playerArray[playerRow][playerCol] = PLAYER;
+        gameArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
     }
@@ -286,13 +286,22 @@ var update = function (speed) {
     }
 };
 
-bgArray = getNextLevel();
+ bgArray = getNextLevel();
  gameArray = bgArray;
         //gameArray[1][1] = PLAYER;
         //gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
         
 // The main game loop
-
+ function levelHandler(levelNR, reset) {
+     playerArray = [];
+     render();
+     console.log(levelNR)
+     bgArray = getLevel(levelNR);
+     playerArray = getPlayerArray();
+     gameArray = bgArray;
+     drawmap();
+     render();
+ }
 function updateNewLevel() {
     bgArray = getNextLevel();
     gameArray = bgArray;
@@ -305,7 +314,7 @@ function updateNewLevel() {
 
 
 var main = function () {
-   
+
     if (getNewLevel() === true) {
        
     }
@@ -386,19 +395,17 @@ var render = function () {
     var x = 0;
     var y = 0;
     var b = 0;
+    ctx2.clearRect(0, 0, 512, 480);
 
-    
-    if (heroReady) {
-        ctx2.clearRect(0, 0,512,480);
-        ctx2.drawImage(heroImage, hero.x, hero.y);
-    }
     for (i = 0; bgArray.length > i; i++) {
         for (c = 0; bgArray[b].length > c; c++) {
             object = bgArray[b];
             if (object[c] === BOX) {
                 ctx2.drawImage(monsterImage, x, y);
             }
-
+            if (object[c] === PLAYER) {
+                ctx2.drawImage(heroImage, x, y);
+            }
             if (object[c] === WATER) {
                 ctx2.drawImage(water, x, y);
             }

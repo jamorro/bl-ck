@@ -16,7 +16,9 @@ function setNewLevel(val) {
 
 //Button in index.html
 function activateNextLevel() {
-    setNewLevel(true);
+    //setNewLevel(true);
+    CURRENT_LEVEL++;
+    levelHandler(CURRENT_LEVEL);
 }
 
 function getResetLevel() {
@@ -29,7 +31,7 @@ function setResetLevel(val) {
 
 //Button in index.html
 function activateResetLevel() {
-	setResetLevel(true);
+    levelHandler(CURRENT_LEVEL);
 }
 
 function getNextLevel() {
@@ -39,7 +41,7 @@ function getNextLevel() {
 
 function getPreviousLevel() {
 	CURRENT_LEVEL--;
-	return getLevel(CURRENT_LEVEL);
+	levelHandler(CURRENT_LEVEL);
 }
 
 function resetLevel() {
