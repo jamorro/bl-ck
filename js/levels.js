@@ -25,7 +25,7 @@
 var gameLevelArr;
 var playerArr;
 
-var AMOUNT_OF_LEVELS = 10;
+var AMOUNT_OF_LEVELS = 11;
 
 function setAmountOfLevels(aLevels) {
 	AMOUNT_OF_LEVELS = aLevels;
