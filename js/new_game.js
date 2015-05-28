@@ -354,7 +354,7 @@ drawmap = function () {
     var x = 0;
     var y = 0;
     var b = 0;
-
+    ctx1.drawImage(bgImage, hero.x, hero.y);
     for (i = 0; i < bgArray.length; i++) {
 
         for (c = 0; c < bgArray[b].length; c++) {
@@ -407,15 +407,17 @@ var render = function () {
     ctx2.clearRect(0, 0, 512, 480);
     //console.log(getHeroPicture());
     ctx2.drawImage(getHeroPicture(), hero.x, hero.y);
-
+    
     for (i = 0; bgArray.length > i; i++) {
         for (c = 0; bgArray[b].length > c; c++) {
             object = bgArray[b];
             if (object[c] === BOX) {
+                ctx1.drawImage(bgImage, x, y);
                 ctx2.drawImage(monsterImage, x, y);
             }
             if (object[c] === WATER) {
                 ctx2.drawImage(water, x, y);
+                ctx1.drawImage(bgImage, x, y);
             }
             x = x + 32;
         }
