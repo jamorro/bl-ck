@@ -1,0 +1,28 @@
+{
+  "lang": {
+    "type": "Svenska"
+  },
+
+  "controls": {
+    "controls": "Kontroller",
+    "esc": "ESC -> Avsluta spel",
+    "reset": "R -> Återställ nivå",
+    "left": "Pil vänster -> Gå vänster",
+    "right": "Pil höger -> Gå höger",
+    "up": "Pil upp -> Gå upp",
+    "down": "Pil ner -> Gå ner",
+    "music_off": "M -> Musik av",
+    "music_on": "M -> Musik på"
+  },
+
+  "menu": {
+    "exit": "Avsluta",
+    "tutorial": "Tutorial",
+    "language": "Språk",
+    "music_off": "Musik av",
+    "music_on": "Musik på",
+    "reset": "Återställ",
+    "level": "Nivå"
+  }
+
+}
