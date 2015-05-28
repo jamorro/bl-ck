@@ -24,6 +24,16 @@
 */
 var gameLevelArr;
 var playerArr;
+/*This is used in level_dropdown.js on how big the list will be*/
+var AMOUNT_OF_LEVELS = 10;
+
+function setAmountOfLevels(aLevels) {
+	AMOUNT_OF_LEVELS = aLevels;
+}
+
+function getAmountOfLevels() {
+	return AMOUNT_OF_LEVELS;
+}
 
 
 

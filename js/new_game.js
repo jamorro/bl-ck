@@ -467,3 +467,4 @@ var backGroundSound = document.getElementById("audio-player");
 //backGroundSound.play();
 main();
 Initiate();
+createLevelList();

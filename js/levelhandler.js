@@ -6,6 +6,10 @@ var CURRENT_LEVEL = 0;
 var new_level_check = false;
 var reset_level_check = false;
 
+function getCurrentLevel() {
+	return CURRENT_LEVEL;
+}
+
 function getNewLevel() {
     return new_level_check;
 }
