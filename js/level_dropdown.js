@@ -11,7 +11,8 @@ function createLevelList() {
 	var currentLevel = getCurrentLevel();
 
 	for (var i = 1; i <= levelAmount; i++) {
-		if (i <= currentLevel) {
+	    if (i <= currentLevel) {
+	        console.log(i);
 			levelList += '<li style="background: green;">Level ' + i + '</li>';
 		} else {
 			levelList += '<li>Level ' + i + '</li>';
