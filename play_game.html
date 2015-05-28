@@ -37,7 +37,9 @@
 	</script>
     </head>
     <body class="background-image">
-    	
+    	<button onclick="getPreviousLevel()">Previous</button>
+        <button onclick="activateNextLevel()">Next</button>
+        <button onclick="activateResetLevel()">Reset</button>
     	<div id="container" >
     	
     	<div id="container-logo">
@@ -56,13 +58,15 @@
     	<div id="mid-container">
     		<div id="mid-left">
     			<h2>Shortcuts</h2>
-    			<li>ESC-> Exit Game</li>
-    			<li>R -> Reset Level</li>
-    			<li>Left arrow -> Go left</li>
-    			<li>Right arrow -> Go right</li>
-    			<li>Up arrow -> Go up</li>
-    			<li>Down arrow -> Go down</li>
-    			<li>M -> Mute sound</li>
+    			<li>ESC: Exit Game</li>
+    			<li>R: Reset Level</li>
+    			<li>M: Mute sound</li>
+    			<li>Left Arrow: Go left</li>
+    			<li>Right Arrow: Go right</li>
+    			<li>Up Arrow: Go up</li>
+    			<li>Down Arrow: Go down</li><br>
+
+    			
     		</div>
 	        <div id="canvasesdiv" style="">
 	            <canvas id="layer1"
@@ -95,11 +99,9 @@
 	        	
     	      	
 	        </div>
-	        <button onclick="getPreviousLevel()">Previous</button>
-		        <button onclick="activateNextLevel()">Next</button>
-		        <button onclick="activateResetLevel()">Reset</button>
+	        
    		</div>
-
+		
    		<audio id="audio-player" src="sound/down_under.mp3" preload="auto">
    	 	<audio id="audio-dino-eating" src="sound/dino_roar.mp3" preload="auto">
         <script src="js/new_game.js"></script>

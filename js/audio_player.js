@@ -7,11 +7,12 @@ function playBackgroundMusic() {
 
 function muteSound() {
     document.getElementById("audio-player").volume = 0;
-
+    document.getElementById("audio-dino-eating").volume = 0;
 }
 
 function unMuteSound() {
     document.getElementById("audio-player").volume = 1;
+    document.getElementById("audio-dino-eating").volume = 1;
 }
 
 function playDinoEatingSound() {
