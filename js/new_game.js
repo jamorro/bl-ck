@@ -267,6 +267,7 @@ function checkRightMovement() {
         else if (gameArray[playerRow][playerCol + 2] === WATER){
             gameArray[playerRow][playerCol + 1] = 1;
             //boxCol++;
+            
             gameArray[playerRow][playerCol + 2] = 1;
         }
     } 
@@ -279,6 +280,7 @@ function checkRightMovement() {
     }
 }
 var heroMovementPicture = heroImage;
+
 function setHeroPicture(tmpImg) {
     heroMovementPicture = tmpImg;
 }
@@ -314,7 +316,7 @@ var update = function (speed) {
  gameArray = bgArray;
 
 // The main game loop
- function levelHandler(levelNR, reset) {
+ function levelHandler(levelNR) {
      console.log(levelNR)
      bgArray = getLevel(levelNR);
      playerArray = getPlayerArray();
@@ -416,7 +418,10 @@ var render = function () {
                 ctx2.drawImage(monsterImage, x, y);
             }
             if (object[c] === WATER) {
-                ctx2.drawImage(water, x, y);
+                //ctx2.drawImage(water, x, y);
+                //ctx1.drawImage(bgImage, x, y);
+            }
+            if (object[c] === MOVABLE) {
                 ctx1.drawImage(bgImage, x, y);
             }
             x = x + 32;
