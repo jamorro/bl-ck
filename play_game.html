@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/play_game.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/jquery/jquery-2.1.4.min.js"></script>
+        <script src="js/audio_player.js"></script>
         <script src="js/levelhandler.js"></script>
         <script src="js/levels.js"></script>
         <script src="js/level_dropdown.js"></script>
@@ -47,8 +48,8 @@
 			<li><a href="#">Exit</a></li>
 			<li><a href="#">Tutorial</a></li>
 			<li><a href="#">Language</a></li>
-			<li><a href="#">Mute Sound</a></li>
-			<li><a href="#">Reset</a></li>
+			<li><a href="#"  id="menu-sound">Mute Sound</a></li>
+			<li><a href="#" onclick="playDinoEatingSound()">Reset</a></li>
 		</ul>
 		<a href="#" id="pull">Menu</a>
 	</nav>
@@ -92,13 +93,15 @@
 	        <div id="mid-right">
 	        	
 	        	
-    	      	<button onclick="alert()">Previous</button>
+    	      	
+	        </div>
+	        <button onclick="getPreviousLevel()">Previous</button>
 		        <button onclick="activateNextLevel()">Next</button>
 		        <button onclick="activateResetLevel()">Reset</button>
-	        </div>
    		</div>
 
-   <audio id="audio-player" src="sound/down_under.mp3" preload="auto">
+   		<audio id="audio-player" src="sound/down_under.mp3" preload="auto">
+   	 	<audio id="audio-dino-eating" src="sound/dino_roar.mp3" preload="auto">
         <script src="js/new_game.js"></script>
     </div>
    
