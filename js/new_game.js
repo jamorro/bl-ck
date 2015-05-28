@@ -42,28 +42,21 @@ var PLAYER  = 2;
 var BOX     = 3;
 var EXIT    = 4;
 var WATER   = 5;
-
 var ROWS_LENGTH = 16;
 var COL_LENGTH = 15;
-
 var START_ROW_PLAYER;
 var START_COL_PLAYER;
-
 var EXIT_ROW = 12;
 var EXIT_COL = 12;
-
 var gameArray;
 var playerRow;
 var playerCol;
-
-
-//JUST DRAWS OUT THE MAP
-
 var bgArray;
-
 var playerArray;
 var goal = 1;
 
+bgArray = getNextLevel();
+gameArray = bgArray;
 
 bgImage.onload = function () {
     drawmap();
@@ -71,20 +64,13 @@ bgImage.onload = function () {
 
 bgImage.src = "images/Tile.png";
 
-// Hero image
-var heroReady = false;
-var heroImage = new Image();
-heroImage.onload = function () {
-    heroReady = true;
-};
-
-heroImage.src = "images/heroDown.png";
-
+// Hero images
 var heroRight = new Image();
 var heroLeft = new Image();
 var heroDown = new Image();
 var heroUp = new Image();
-
+var heroImage = new Image();
+heroImage.src = "images/heroDown.png";
 heroRight.src = "images/heroRight.png";
 heroLeft.src = "images/heroLeft.png";
 heroUp.src = "images/heroUp.png";
@@ -92,12 +78,8 @@ heroDown.src = "images/heroDown.png";
 
 
 // Monster image
-var monsterReady = false;
-var monsterImage = new Image();
-monsterImage.onload = function () {
-    monsterReady = true;
-};
-monsterImage.src = "images/block.png";
+var boxImage = new Image();
+boxImage.src = "images/block.png";
 
 // Game objects
 var hero = {
@@ -312,9 +294,7 @@ var update = function (speed) {
     }
 };
 
- bgArray = getNextLevel();
- gameArray = bgArray;
-
+ 
 // The main game loop
  function levelHandler(levelNR) {
     playDinoEatingSound()
@@ -327,29 +307,8 @@ var update = function (speed) {
     render();
  }
 
- function updateNewLevel() {
-    bgArray = getNextLevel();
-    gameArray = bgArray;
-    gameArray[1][1] = PLAYER;
-    gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-    playerArray[playerRow][playerCol] = PLAYER;
-    drawmap();
-    setNewLevel(false);
-}
-
 
 var main = function () {
-
-    if (getNewLevel() === true) {
-       
-    }
-    if (getResetLevel() === true) {
-        bgArray = resetLevel();
-        gameArray = bgArray;
-        playerArray = getPlayerArray();
-        drawmap();
-        setResetLevel(false);
-    }
     render();
     requestAnimationFrame(main);
 };
@@ -377,8 +336,6 @@ drawmap = function () {
             }
 
             if (object[c] === PLAYER) {
-                //ctx1.drawImage(heroImage, x, y);
-                //console.log(i, c)
                 playerRow = i;
                 playerCol = c;
                 playerArray = getPlayerArray();
@@ -387,17 +344,6 @@ drawmap = function () {
                 hero.y = y;
                 
             }
-                 /*      
-            if (object[c] === BOX) {
-                //ctx1.drawImage(heroImage, x, y);
-                //console.log(i, c)
-                boxRow = i;
-                boxCol = c;
-                box.x = x;
-                box.y = y;
-
-            }*/
-
             x = x + 32;
         }
         x = 0;
@@ -412,7 +358,6 @@ var render = function () {
     var y = 0;
     var b = 0;
     ctx2.clearRect(0, 0, 512, 480);
-    //console.log(getHeroPicture());
     ctx2.drawImage(getHeroPicture(), hero.x, hero.y);
     ctx1.drawImage(bgImage, hero.x, hero.y);
     for (i = 0; bgArray.length > i; i++) {
@@ -420,12 +365,12 @@ var render = function () {
             object = bgArray[b];
             if (object[c] === BOX) {
                 ctx1.drawImage(bgImage, x, y);
-                ctx2.drawImage(monsterImage, x, y);
+                ctx2.drawImage(boxImage, x, y);
             }
-            if (object[c] === WATER) {
-                //ctx2.drawImage(water, x, y);
-                //ctx1.drawImage(bgImage, x, y);
-            }
+            /*if (object[c] === WATER) {
+                ctx2.drawImage(water, x, y);
+                ctx1.drawImage(bgImage, x, y);
+            }*/
             if (object[c] === MOVABLE) {
                 ctx1.drawImage(bgImage, x, y);
             }
@@ -438,34 +383,6 @@ var render = function () {
 };
 
 
-// Reset the game when the player catches a monster
-
-var Initiate = function () {
-    var x = 0;
-    var y = 0;
-    var b = 0;
-    for (i = 0; i < bgArray.length; i++) {
-
-        for (c = 0; c < gameArray[b].length; c++) {
-            var object = gameArray[b];
-            if (object[c] === 2) {
-                hero.x = x;
-                hero.y = y;
-
-            }
-            if (object[c] === 3){
-                box.x = x;
-                box.y = y;
-                
-            }
-            x = x + 32;
-        }
-        x = 0;
-        b++;
-        y = y + 32;
-    }
-    
-};
 var then = Date.now();
 
 
@@ -476,8 +393,5 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Let's play this game!
-
-
 main();
-Initiate();
 createLevelList();
