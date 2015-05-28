@@ -461,6 +461,7 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 // Let's play this game!
 var then = Date.now();
-
+var backGroundSound = document.getElementById("audio-player");
+//backGroundSound.play();
 main();
 Initiate();

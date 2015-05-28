@@ -1,22 +1,39 @@
+
+@font-face {
+    font-family: 'pixelish';
+    src: url('fonts/VCR_OSD_MONO_1.001.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .background-image {
   	background-image: url(../images/bg2.jpg);
   	background-size: cover;
   	display: block;
- 	filter: blur(5px);
-  	-webkit-filter: blur(3px);
-  	height: 1050px;
+  	/*height: 1050px;
   	left: 0;
   	position: fixed;
   	right: 0;
-  	z-index: 1;
+  	z-index: 1;*/
 }
-
+#audio-player {
+	display: none;
+}
 .img {
 }
 
+/*CANVAS = 512px*/
 #container {
-	width: 960px;
+	width: 1212px;
 	margin: 0px auto;
+}
+#container-logo {
+	width: 500px;
+	margin: 0 auto;
+}
+#container-logo img {
+	width: 100%;
+	margin: 0 auto;
 }
 
 #mid-container {
@@ -24,13 +41,24 @@
 }
 #mid-left {
 	float: left;
-	width: 300px;
-	background: blue;
+	width: 350px;
+	background: #455868;
+	color: #fff;
+	font-family: "pixelish";
+	font-size: 1.3em;
 }
+
 #canvasesdiv {
 	float: left;
 	background: orange;
-	position:relative; width:512px; height:480px
+	position:relative; 
+	width:512px; 
+	height:480px
+}
+
+#mid-right {
+	float: left;
+	width: 350px;
 }
 
 @media screen and (max-width: 959px) {
