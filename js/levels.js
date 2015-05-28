@@ -78,7 +78,7 @@ function getLevel(level) {
 			return level_9();
 		case 10 :
 			return level_10();
-		case 10 :
+		case 11 :
 			return level_11(); 	
 	}
 
