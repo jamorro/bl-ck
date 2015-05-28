@@ -46,9 +46,6 @@ var WATER   = 5;
 var ROWS_LENGTH = 16;
 var COL_LENGTH = 15;
 
-var START_ROW_BOX_1 = 8;
-var START_COL_BOX_1 = 11;
-
 var START_ROW_PLAYER;
 var START_COL_PLAYER;
 
@@ -56,8 +53,6 @@ var EXIT_ROW = 12;
 var EXIT_COL = 12;
 
 var gameArray;
-var boxRow = null;
-var boxCol = null;
 var playerRow;
 var playerCol;
 
@@ -317,14 +312,17 @@ var main = function () {
     if (getResetLevel() === true) {
         bgArray = resetLevel();
         gameArray = bgArray;
+
+        playerArray = getPlayerArray();
+
         //console.log(playerArray);
         //console.log(gameArray);
         //gameArray[1][1] = PLAYER;
-        gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
-        playerRow = 1;
-        playerCol = 1;
-        playerArray = getPlayerArray();
-        playerArray[playerRow][playerCol] = PLAYER;
+        //gameArray[START_ROW_BOX_1][START_COL_BOX_1] = BOX;
+        //playerRow = 1;
+        //playerCol = 1;
+        //playerArray = getPlayerArray();
+        //playerArray[playerRow][playerCol] = PLAYER;
         drawmap();
         setResetLevel(false);
     }
