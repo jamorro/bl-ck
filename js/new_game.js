@@ -306,6 +306,14 @@ var update = function (speed) {
     if (82 in keysDown) {
         levelHandler(getCurrentLevel());
     }
+    //MUTE VILLES MAC
+    if (81 in keysDown) {
+        muteSound();
+    }
+    //RESET VILLES MAC
+    if (87 in keysDown) {
+        levelHandler(getCurrentLevel());
+    }
 
 };
 
