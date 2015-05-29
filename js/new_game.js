@@ -309,6 +309,7 @@ var update = function (speed) {
     if (82 in keysDown) {
         levelHandler(getCurrentLevel());
     }
+    //CHANGE LANGUAGE
     if (76 in keysDown) {
         changeLanguage();
     }
