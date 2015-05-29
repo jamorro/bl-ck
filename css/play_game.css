@@ -10,11 +10,6 @@
   	background-image: url(../images/wattah2.gif);
   	background-size: cover;
   	display: block;
-  	/*height: 1050px;
-  	left: 0;
-  	position: fixed;
-  	right: 0;
-  	z-index: 1;*/
 }
 #audio-player {
 	display: none;

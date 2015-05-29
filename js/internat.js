@@ -1,29 +1,23 @@
 
+var SET_LANGUAGE = "en";
+
 function languageInit() {
-    i18n.init({ lng: "en" }, function(language) {
-            $(".controls").i18n();
-            var appName = language("lang.type");
-        });
+    i18n.init({ lng: SET_LANGUAGE }, function() {
+        $(".controls").i18n();
+    });
 }
 
-
+function changeLanguage() {
 	
-	var langSwitch = false;
-
-	function changeLanguage() {
-		
-		if (langSwitch === false) {
-			i18n.init({ lng: "sv" }, function(t) {
-  			$(".controls").i18n();
-  			var appName = t("lang.type");
-  			
-			});
-			langSwitch = true;
-		} else if (langSwitch === true) {
-			i18n.init({ lng: "en" }, function(language) {
-  			$(".controls").i18n();
-  			var appName = language("lang.type");
+	if (SET_LANGUAGE === "en") {
+		i18n.init({ lng: "sv" }, function() {
+			$(".controls").i18n();
 		});
-			langSwitch = false;
-		}
+		SET_LANGUAGE = "sv";
+	} else if (SET_LANGUAGE === "sv") {
+		i18n.init({ lng: "en" }, function() {
+			$(".controls").i18n();
+		});
+		SET_LANGUAGE = "en";
 	}
+}

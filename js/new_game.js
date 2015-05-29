@@ -100,7 +100,6 @@ addEventListener("keydown", function (e) {
         update();
         console.log(e.keyCode);
     };
-    
 }, false);
 
 addEventListener("keyup", function (e) {
@@ -298,6 +297,9 @@ var update = function (speed) {
     if (27 in keysDown) {
         window.location = "start_screen.html";
     }
+    if (78 in keysDown) {
+        window.location = "play_game.html";
+    }
     //MUTE
     if (77 in keysDown) {
         muteSound();
@@ -422,7 +424,3 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Loops the document
 main();
 createLevelList();
-i18n.init({ lng: "en" }, function(t) {
-    $(".controls").i18n();
-    var appName = t("lang.type");
-});
