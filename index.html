@@ -3,47 +3,35 @@
     <head>
         <meta charset="utf-8">
         <title>Simple Canvas Game</title>
-        <script src="js/levelhandler.js"></script>
-        <script src="js/levels.js"></script>
-        <script src="js/jquery/jquery-2.1.4.min.js"></script>
-        <script src="js/audio_player.js"></script>
-        <script src="js/levelhandler.js"></script>
-        <script src="js/levels.js"></script>
-        <script src="js/level_dropdown.js"></script>
-        <script src="js/logic.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="js/start_screen.js"></script>
     </head>
-    <body>
-        <div id="canvasesdiv" style="position:relative; width:512px; height:480px">
-            <canvas id="layer1"
-                style="z-index: 1;
-                position:absolute;
-                left:0px;
-                top:0px;
-                " height="480px" width="512">
-                This text is displayed ifsadf your browser does not support HTML5 Canvas.
-            </canvas>
-            <canvas id="layer2"
-                style="z-index: 2;
-                position:absolute;
-                left:0px;
-                top:0px;
-                " height="480px" width="512">
-                This text is displayed if your browser does not support HTML5 Canvas.
-            </canvas>
-                <canvas id="layer3"
-                style="z-index: 3;
-                position:absolute;
-                left:0px;
-                top:0px;
-                " height="480px" width="512">
-                    This text is displayed if your browser does not support HTML5 Canvas.
-            </canvas>
+
+
+<body>
+        <div id="start-container">
+        
+        <div>
+        <img src="images/logo.png" />
+    </div>
+        <div id="start-menu" class="btn-start-menu">
+
+            <ul>
+                <li>
+                    <button onclick="startNewGame()">New Game</button>
+                </li>
+                <li>
+                    <button onclick="startTutorial()">Tutorial</button>
+                </li>
+                <li>
+                    <button onclick="settings()">Settings</button>
+                </li>
+            </ul>
+ 
+        </div>
 
         </div>
-        <button onclick="getPreviousLevel()"> Previous</button>
-        <button onclick="activateNextLevel()">Next</button>
-        <button onclick="activateResetLevel()">Reset</button>
-        <script src="js/new_game.js"></script>
     </body>
 
 </html>

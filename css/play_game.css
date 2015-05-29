@@ -7,7 +7,7 @@
 }
 
 .background-image {
-  	background-image: url(../images/kang2.jpg);
+  	background-image: url(../images/wattah2.gif);
   	background-size: cover;
   	display: block;
   	/*height: 1050px;
@@ -27,6 +27,7 @@
 	width: 1216px;
 	margin: 0px auto;
 }
+
 #container-logo {
 	width: 500px;
 	margin: 0 auto;
@@ -37,7 +38,7 @@
 }
 
 #mid-container {
-	background: #455868;
+	
 }
 #mid-left {
 	float: left;
