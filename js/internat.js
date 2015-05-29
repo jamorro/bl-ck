@@ -6,11 +6,11 @@ function languageInit() {
         });
 }
 
-$(document).ready(function(){
+
 	
 	var langSwitch = false;
 
-	$("#btn-lang").click(function() {
+	function changeLanguage() {
 		
 		if (langSwitch === false) {
 			i18n.init({ lng: "sv" }, function(t) {
@@ -26,24 +26,4 @@ $(document).ready(function(){
 		});
 			langSwitch = false;
 		}
-	});
-
-/*
-	$("#btn-lang-en").click(function() {
-				
-		i18n.init({ lng: "en" }, function(language) {
-  			$(".controls").i18n();
-  			var appName = language("lang.type");
-		});
-	});
-
-	$("#btn-lang-sv").click(function() {
-				
-		i18n.init({ lng: "sv" }, function(t) {
-  			$(".controls").i18n();
-  			var appName = t("lang.type");
-  			
-		});
-	});
-	*/
-});
+	}

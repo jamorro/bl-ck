@@ -11,17 +11,8 @@
     "right": "Pil höger: Gå höger",
     "up": "Pil upp: Gå upp",
     "down": "Pil ner: Gå ner",
-    "mute": "M: Ljud av/på"
-  },
-
-  "menu": {
-    "exit": "Avsluta",
-    "tutorial": "Tutorial",
-    "language": "Språk",
-    "mute": "Ljud av",
-    "unmute": "Ljud på",
-    "reset": "Återställ nivå",
+    "mute": "M: Ljud av/på",
+    "lang": "L: English",
     "level": "Nivå"
   }
-
 }

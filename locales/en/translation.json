@@ -10,17 +10,9 @@
     "left": "Left arrow: Go left",
     "right": "Right arrow: Go right",
     "up": "Up arrow: Go up",
-    "down": "down arrow: Go down",
-    "mute": "M: Mute/Unmute sound"
-  },
-
-  "menu": {
-    "exit": "Exit game",
-    "tutorial": "Tutorial",
-    "language": "Language",
-    "mute": "Mute sound",
-    "unmute": "Unmute sound",
-    "reset": "Reset level",
+    "down": "Down arrow: Go down",
+    "mute": "M: Mute/Unmute sound",
+    "lang": "L: Svenska",
     "level": "Level"
   }
 

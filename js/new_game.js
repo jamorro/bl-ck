@@ -306,6 +306,9 @@ var update = function (speed) {
     if (82 in keysDown) {
         levelHandler(getCurrentLevel());
     }
+    if (76 in keysDown) {
+        changeLanguage();
+    }
     //MUTE VILLES MAC
     if (81 in keysDown) {
         muteSound();
