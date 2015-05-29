@@ -297,6 +297,7 @@ var update = function (speed) {
     if (27 in keysDown) {
         window.location = "start_screen.html";
     }
+    //NEW GAME
     if (78 in keysDown) {
         window.location = "play_game.html";
     }
