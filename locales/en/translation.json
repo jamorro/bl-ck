@@ -5,14 +5,13 @@
 
   "controls": {
     "controls": "Controls",
-  	"esc": "ESC -> Exit game",
-    "reset": "R -> Reset level",
-    "left": "Left arrow -> Go left",
-    "right": "Right arrow -> Go right",
-    "up": "Up arrow -> Go up",
-    "down": "down arrow -> Go down",
-    "mute": "M -> Mute sound",
-    "unmute": "M -> Unmute sound"
+  	"esc": "ESC: Exit game",
+    "reset": "R: Reset level",
+    "left": "Left arrow: Go left",
+    "right": "Right arrow: Go right",
+    "up": "Up arrow: Go up",
+    "down": "down arrow: Go down",
+    "mute": "M: Mute/Unmute sound"
   },
 
   "menu": {

@@ -5,14 +5,13 @@
 
   "controls": {
     "controls": "Kontroller",
-    "esc": "ESC -> Avsluta spel",
-    "reset": "R -> Återställ nivå",
-    "left": "Pil vänster -> Gå vänster",
-    "right": "Pil höger -> Gå höger",
-    "up": "Pil upp -> Gå upp",
-    "down": "Pil ner -> Gå ner",
-    "mute": "M -> Ljud av",
-    "unmute": "M -> Ljud på"
+    "esc": "ESC: Avsluta spel",
+    "reset": "R: Återställ nivå",
+    "left": "Pil vänster: Gå vänster",
+    "right": "Pil höger: Gå höger",
+    "up": "Pil upp: Gå upp",
+    "down": "Pil ner: Gå ner",
+    "mute": "M: Ljud av/på"
   },
 
   "menu": {
