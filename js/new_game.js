@@ -40,7 +40,7 @@ heroDown.src = "images/heroDown.png";
 
 // Monster image
 var boxImage = new Image();
-boxImage.src = "images/block.png";
+boxImage.src = "images/wood.jpg";
 
 //size of each square
 var WIDTH = 32;
