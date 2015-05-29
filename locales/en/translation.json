@@ -13,6 +13,16 @@
     "down": "Down arrow: Go down",
     "mute": "M: Mute/Unmute sound",
     "lang": "L: Svenska",
+    "mute": "M: Mute/Unmute sound"
+  },
+
+  "menu": {
+    "exit": "Exit game",
+    "tutorial": "Tutorial",
+    "language": "Language",
+    "mute": "Mute sound",
+    "unmute": "Unmute sound",
+    "reset": "Reset level",
     "level": "Level"
   }
 
