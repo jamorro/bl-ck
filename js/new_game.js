@@ -120,7 +120,7 @@ function checkUpMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y -= hero.speed;
-        activateNextLevel();
+        progressLevels();
     }
     else if (gameArray[playerRow - 1][playerCol] === BOX && gameArray[playerRow - 1][playerCol] !== WATER) {
         if (gameArray[playerRow - 2][playerCol] !== WALL && gameArray[playerRow - 2][playerCol] !== BOX && gameArray[playerRow - 2][playerCol] !== WATER) {
@@ -156,7 +156,7 @@ function checkDownMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.y += hero.speed;
-        activateNextLevel();
+        progressLevels();
     }
     else if (gameArray[playerRow + 1][playerCol] === BOX) {
         if (gameArray[playerRow + 2][playerCol] !== WALL && gameArray[playerRow + 2][playerCol] !== BOX && gameArray[playerRow + 2][playerCol] !== WATER) {
@@ -193,7 +193,7 @@ function checkLeftMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
         //alert("YOU WIN MF");
-        activateNextLevel();
+        progressLevels();
     }
     else if (gameArray[playerRow][playerCol - 1] === BOX) {
         if (gameArray[playerRow][playerCol - 2] !== WALL && gameArray[playerRow][playerCol - 2] !== BOX && gameArray[playerRow][playerCol - 2] !== WATER) {
@@ -230,7 +230,7 @@ function checkRightMovement() {
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
         //alert("YOU WIN MF");
-        activateNextLevel();
+        progressLevels();
     }
    
     else if (gameArray[playerRow][playerCol + 1] === BOX) {
@@ -304,6 +304,14 @@ var update = function (speed) {
     }
     //RESET
     if (82 in keysDown) {
+        levelHandler(getCurrentLevel());
+    }
+    //MUTE VILLES MAC
+    if (81 in keysDown) {
+        muteSound();
+    }
+    //RESET VILLES MAC
+    if (87 in keysDown) {
         levelHandler(getCurrentLevel());
     }
 
