@@ -18,8 +18,6 @@ function setNewLevel(val) {
     new_level_check = val;
 }
 
-
-
 function getResetLevel() {
 	return reset_level_check;
 }

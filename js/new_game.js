@@ -9,12 +9,7 @@ layer1 = document.getElementById("layer1");
 ctx1 = layer1.getContext("2d");
 layer2 = document.getElementById("layer2");
 ctx2 = layer2.getContext("2d");
-//layer3 = document.getElementById("layer3");
-//ctx3 = layer3.getContext("2d");
-//15*16
-// Background image
 
-//
 var walls = new Image();
 var bgImage = new Image();
 var exit = new Image();
@@ -79,9 +74,6 @@ gameArray = bgArray;
 bgImage.onload = function () {
     drawmap();
 }
-
-
-
 // Game objects
 var hero = {
     speed: 32 // movement in pixels per second
@@ -109,7 +101,9 @@ addEventListener("keyup", function (e) {
 }, false);
 
 
-//functions that handle the main movement. The character moves around in a array and the system keeps track of the position of the hero and the other elements via these 2 arrays
+//functions that handle the main movement. 
+//The character moves around in a array and the system keeps track of the 
+//position of the hero and the other elements via these 2 arrays
 function checkUpMovement() {
 
     if (gameArray[playerRow - 1][playerCol] === EXIT) {
@@ -191,13 +185,11 @@ function checkLeftMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x -= hero.speed;
-        //alert("YOU WIN MF");
         progressLevels();
     }
     else if (gameArray[playerRow][playerCol - 1] === BOX) {
         if (gameArray[playerRow][playerCol - 2] !== WALL && gameArray[playerRow][playerCol - 2] !== BOX && gameArray[playerRow][playerCol - 2] !== WATER) {
             gameArray[playerRow][playerCol - 1] = 1;
-            //boxCol--;
             gameArray[playerRow][playerCol - 2] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerCol--;
@@ -221,6 +213,7 @@ function checkLeftMovement() {
 }
 
 function checkRightMovement() {
+
     if (gameArray[playerRow][playerCol + 1] === EXIT) {
         playDinoEatingSound();
         playerArray[playerRow][playerCol] = 0;
@@ -228,14 +221,12 @@ function checkRightMovement() {
         playerArray[playerRow][playerCol] = PLAYER;
         ctx2.clearRect(hero.y, hero.x, WIDTH, HEIGHT);
         hero.x += hero.speed;
-        //alert("YOU WIN MF");
         progressLevels();
     }
    
     else if (gameArray[playerRow][playerCol + 1] === BOX) {
         if (gameArray[playerRow][playerCol + 2] !== WALL && gameArray[playerRow][playerCol + 2] !== BOX && gameArray[playerRow][playerCol + 2] !== WATER) {
             gameArray[playerRow][playerCol + 1] = 1;
-            //boxCol++;
             gameArray[playerRow][playerCol + 2] = BOX;
             playerArray[playerRow][playerCol] = 0;
             playerCol++;
@@ -246,8 +237,6 @@ function checkRightMovement() {
         }
         else if (gameArray[playerRow][playerCol + 2] === WATER){
             gameArray[playerRow][playerCol + 1] = 1;
-            //boxCol++;
-            
             gameArray[playerRow][playerCol + 2] = 1;
         }
     } 
@@ -327,7 +316,6 @@ var update = function (speed) {
  
 // The function in charge of changing or resetting the levels
  function levelHandler(levelNR) {
-    
     createLevelList();
     bgArray = getLevel(levelNR);
     playerArray = getPlayerArray();
@@ -412,17 +400,13 @@ var render = function () {
     }
 };
 
-
 var then = Date.now();
-
-
-//plays music
-playBackgroundMusic();
-
 // Cross-browser support for requestAnimationFrame
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
+//plays music
+playBackgroundMusic();
 // Loops the document
 main();
 createLevelList();

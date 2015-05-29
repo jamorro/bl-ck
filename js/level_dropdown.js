@@ -20,8 +20,6 @@ function createLevelList() {
 		} else {
 			levelList += '<li>' + i + '</li>';
 		}
-		
 	}
-
 	$("#mid-right-levels").html(levelList);
 }
