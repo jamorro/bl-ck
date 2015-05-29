@@ -13,15 +13,15 @@ function createLevelList() {
 	for (var i = 1; i <= levelAmount; i++) {
 		
 		if (i == currentLevel) {
-			levelList += '<li style="background: orange;" onclick="getPreviousLevel()">Level ' + i + '</li>';
+			levelList += '<li style="background: orange;" onclick="getPreviousLevel()">' + i + '</li>';
 		}
 		else if (i < currentLevel) {
-			levelList += '<li style="background: green;" onclick="getPreviousLevel()">Level ' + i + '</li>';
+			levelList += '<li style="background: green;" onclick="getPreviousLevel()">' + i + '</li>';
 		} else {
-			levelList += '<li>Level ' + i + '</li>';
+			levelList += '<li>' + i + '</li>';
 		}
 		
 	}
 
-	$("#mid-right").html(levelList);
+	$("#mid-right-levels").html(levelList);
 }

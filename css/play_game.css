@@ -65,8 +65,9 @@
 
 #mid-right {
 	float: left;
-	width: 350px;
+	width: 250px;
 	text-decoration: none;
+	margin: 0px;
 
 }
 
@@ -75,10 +76,20 @@
 	border: 2px solid white;
 	list-style-type: none;
 	color: #FFF;
-	height: 35px;
+	height: 30px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 15px;
 	padding-top: 5px;
+	font-family: "pixelish";
+}
+
+#mid-right h3 {
+	background: #455868;
+	border: 2px solid white;
+	height: 30px;
+	text-align: center;
+	padding-bottom: 0px;
+	color: white;
 	font-family: "pixelish";
 }
 
