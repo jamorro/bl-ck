@@ -1,0 +1,30 @@
+
+@font-face {
+    font-family: 'pixelish';
+    src: url('fonts/VCR_OSD_MONO_1.001.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.background-image {
+  	background-image: url(../images/wattah2.gif);
+  	background-size: cover;
+  	display: block;
+}
+
+#start-container {
+	margin: 90px;
+	width: 100%;
+}
+
+li {
+	list-style-type: none;
+}
+
+button {
+	background: #455868;
+	width: 15em;
+	height: 50px;
+	color: white;
+	font-family: 'pixelish';
+}
