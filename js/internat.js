@@ -1,5 +1,14 @@
+
+function languageInit() {
+    i18n.init({ lng: "en" }, function(language) {
+            $(".controls").i18n();
+            var appName = language("lang.type");
+        });
+}
+
 $(document).ready(function(){
-var langSwitch = false;
+	
+	var langSwitch = false;
 
 	$("#btn-lang").click(function() {
 		

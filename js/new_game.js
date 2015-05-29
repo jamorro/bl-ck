@@ -110,6 +110,7 @@ addEventListener("keyup", function (e) {
 }, false);
 
 
+
 //functions that handle the main movement. The character moves around in a array and the system keeps track of the position of the hero and the other elements via these 2 arrays
 function checkUpMovement() {
 
@@ -412,6 +413,7 @@ var then = Date.now();
 //plays music
 playBackgroundMusic();
 
+
 // Cross-browser support for requestAnimationFrame
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
@@ -419,3 +421,5 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Loops the document
 main();
 createLevelList();
+
+
