@@ -17,24 +17,6 @@
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
 	<script>
-		$(function() {
-			var pull 		= $('#pull');
-				menu 		= $('nav ul');
-				menuHeight	= menu.height();
-
-			$(pull).on('click', function(e) {
-				e.preventDefault();
-				menu.slideToggle();
-			});
-
-			$(window).resize(function(){
-        		var w = $(window).width();
-        		if(w > 320 && menu.is(':hidden')) {
-        			menu.removeAttr('style');
-        		}
-    		});
-		});
-
 		
 		languageInit();
 	</script>
@@ -46,16 +28,7 @@
     	<div id="container-logo">
     		<img src="images/logo_small6.png">
     	</div>
-    	<!--<nav class="clearfix">
-		<ul class="clearfix">
-			<li><a href="#">Exit</a></li>
-			<li><a href="#">Tutorial</a></li>
-			<li><a id="btn-lang" href="#">Language</a></li>
-			<li><a href="#" id="menu-sound">Mute Sound</a></li>
-			<li><a href="#" onclick="playDinoEatingSound()">Reset</a></li>
-		</ul>
-		<a href="#" id="pull">Menu</a>
-	</nav>-->
+    	
     	<div id="mid-container">
     		<div id="mid-left">
     			<h2 class="controls" data-i18n="controls.controls"></h2>
@@ -103,7 +76,7 @@
 		        <button onclick="activateResetLevel()">Reset</button>-->
    		</div>
 
-   		<audio id="audio-player" src="sound/down_under.mp3" preload="auto">
+   		<audio controls loop id="audio-player" src="sound/down_under.mp3" preload="auto">
    	 	<audio id="audio-dino-eating" src="sound/dino_roar.mp3" preload="auto">
         <script src="js/new_game.js"></script>
     </div>

@@ -423,7 +423,6 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 main();
 createLevelList();
 i18n.init({ lng: "en" }, function(t) {
-            $(".controls").i18n();
-            var appName = t("lang.type");
-            
-            });
+    $(".controls").i18n();
+    var appName = t("lang.type");
+});
