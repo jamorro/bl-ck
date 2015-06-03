@@ -35,7 +35,12 @@ function activateNextLevel() {
     if (getAmountOfLevels() !== CURRENT_LEVEL) {
         CURRENT_LEVEL++;
         levelHandler(CURRENT_LEVEL);
-    }
+       }
+    else {
+        levelHandler(99);
+
+        }
+    
 }
 
 //Button in index.html
