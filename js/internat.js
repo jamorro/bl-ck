@@ -1,4 +1,4 @@
-
+//set language to english in the beginning
 var SET_LANGUAGE = "en";
 
 function languageInit() {
@@ -6,7 +6,8 @@ function languageInit() {
         $(".controls").i18n();
     });
 }
-
+//executes the internationalization, connected to key 'L'
+//if english, change to swedish, vice versa
 function changeLanguage() {
 	
 	if (SET_LANGUAGE === "en") {

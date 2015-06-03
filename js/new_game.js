@@ -17,7 +17,7 @@ var water = new Image();
 var boxArray = [];
 water.src = "images/water.png";
 walls.src = "images/wall.png";
-exit.src = "images/exit.png";
+exit.src = "images/exit.png"; //cupcakes
 bgImage.src = "images/Tile.png";
 
 // Hero images
@@ -33,7 +33,7 @@ heroUp.src = "images/heroUp.png";
 heroDown.src = "images/heroDown.png";
 
 
-// Monster image
+//pushable block/box
 var boxImage = new Image();
 boxImage.src = "images/wood.jpg";
 
@@ -286,19 +286,19 @@ var update = function (speed) {
     if (27 in keysDown) {
         window.location = "start_screen.html";
     }
-    //NEW GAME
+    //NEW GAME key 'N'
     if (78 in keysDown) {
         window.location = "play_game.html";
     }
-    //MUTE
+    //MUTE key 'M'
     if (77 in keysDown) {
         muteSound();
     }
-    //RESET
+    //RESET key 'R'
     if (82 in keysDown) {
         levelHandler(getCurrentLevel());
     }
-    //CHANGE LANGUAGE
+    //CHANGE LANGUAGE key 'L'
     if (76 in keysDown) {
         changeLanguage();
     }
