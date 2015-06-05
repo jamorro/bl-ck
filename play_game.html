@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Blöck</title>
+        <title>BLÖCK</title>
         <link rel="stylesheet" type="text/css" href="css/play_game.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/jquery/jquery-2.1.4.min.js"></script>
@@ -34,12 +34,13 @@
 	    			<li class="controls" data-i18n="controls.esc"></li>
 	    			<li class="controls" data-i18n="controls.reset"></li>
 	    			<li class="controls" data-i18n="controls.mute"></li>
-	    			<li class="controls" data-i18n="controls.new"></li>
-	    			<li class="controls" data-i18n="controls.lang"></li>    			
+	    			<li class="controls" data-i18n="controls.new"></li>  		
 	    			<li class="controls" data-i18n="controls.left"></li>
 	    			<li class="controls" data-i18n="controls.right"></li>
 	    			<li class="controls" data-i18n="controls.up"></li>
 	    			<li class="controls" data-i18n="controls.down"></li>
+	    			<br><br><br><br>
+	    			<li class="controls" data-i18n="controls.lang"></li>
 	    		</div>
 		        <div id="canvasesdiv" style="">
 		            <canvas id="layer1"
@@ -48,7 +49,7 @@
 		                left:0px;
 		                top:0px;
 		                " height="480px" width="512">
-		                This text is displayed ifsadf your browser does not support HTML5 Canvas.
+		                This text is displayed if your browser does not support HTML5 Canvas.
 		            </canvas>
 		            <canvas id="layer2"
 		                style="z-index: 2;
@@ -69,14 +70,16 @@
 		        -->
 		        </div>
 		        <div id="mid-right">
-		        	<h3 class="controls" data-i18n="controls.level"></h3>
+		        	<h2 class="controls" data-i18n="controls.level"></h2>
 		        	<div id="mid-right-levels"></div>
 		        </div>
-		        <button onclick="getPreviousLevel()">Previous</button>
+		        	<!--buttons for testing/presentation for changing levels-->
+		        	<button onclick="getPreviousLevel()">Previous</button>
 			        <button onclick="activateNextLevel()">Next</button>
 			        <button onclick="activateResetLevel()">Reset</button>
 	   		</div>
 
+	   		<!-- Loads the background music and sound when reaching cupcakes-->
 	   		<audio controls loop id="audio-player" src="sound/down_under.mp3" preload="auto">
 	   	 	<audio id="audio-dino-eating" src="sound/dino_roar.mp3" preload="auto">
 	        <script src="js/new_game.js"></script>
