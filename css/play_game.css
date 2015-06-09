@@ -66,6 +66,10 @@
 	background: #455868;
 }
 
+#mid-right-levels {
+	margin: 20px;
+}
+
 #mid-right li {
 	background: #455868;
 	border: 2px solid white;
@@ -87,11 +91,9 @@
 	color: white;
 	font-family: "pixelish";
 	margin-top: 0px;
+	margin: 20px;
 }
 
-#mid-right li p {
-	margin: 0 auto;
-}
 
 @media screen and (max-width: 1200px) {
 	#container {
